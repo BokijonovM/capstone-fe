@@ -13,12 +13,8 @@ function MyFooter() {
       >
         {" "}
         Bokijonov Mukhsinjon{" "}
-      </a>{" "}
-      |{" "}
-      <span className="mx-1" style={{ marginBottom: "2px" }}>
-        <CopyrightIcon fontSize="small" />
-      </span>{" "}
-      2022 All rights reserved.
+      </a>
+      | 2022 All rights reserved.
     </div>
   );
 }

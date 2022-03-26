@@ -150,6 +150,7 @@ export default function MyNavbar() {
   useEffect(() => {
     if (dataJson) {
       setIsLoggedIn(true);
+      console.log(dataJson);
       fetchData(dataJson);
     }
   }, []);
@@ -492,7 +493,7 @@ export default function MyNavbar() {
                               src="/static/images/avatar/1.jpg"
                             />
                           </Stack>
-                          Username
+                          {user?.firstName}
                           <ChevronDownIcon
                             className="-mr-1 ml-2 h-5 w-5"
                             aria-hidden="true"

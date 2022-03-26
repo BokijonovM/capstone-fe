@@ -48,8 +48,7 @@ export default function MyLogin() {
       if (res.ok) {
         let data = await res.json();
         console.log(data.posts);
-        localStorage.setItem("MyToken", data.token);
-
+        localStorage.setItem("MyToken", data.accessToken);
         window.location.href = "/";
         console.log("Successfully logged in!");
       }
@@ -136,13 +135,16 @@ export default function MyLogin() {
               />
 
               <div className="d-flex">
-                <Button
-                  className="mr-1 text-dark social-media-login"
-                  fullWidth
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  <GoogleIcon />
-                </Button>
+                <a href="http://localhost:3001/users/googleLogin">
+                  <Button
+                    className="mr-1 px-5 text-dark social-media-login"
+                    fullWidth
+                    sx={{ mt: 3, mb: 2 }}
+                  >
+                    <GoogleIcon />
+                  </Button>
+                </a>
+
                 <Button
                   className="mx-1 text-dark social-media-login"
                   fullWidth
