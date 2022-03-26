@@ -1,3 +1,11 @@
 .shadow-needed-login {
-  box-shadow: rgba(0, 0, 0, 0.151) -5px -8px 13px 0px;
+  border-left: 0.1px solid rgb(219, 219, 219);
+}
+.social-media-login {
+  background-color: rgb(230, 230, 230);
+  box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px,
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px;
+}
+.main-theme-login {
+  border-bottom: 0.1px solid rgb(219, 219, 219) !important;
 }

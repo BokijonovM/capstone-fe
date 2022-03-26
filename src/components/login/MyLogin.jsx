@@ -5,13 +5,17 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
+import image from "./image.png";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import image from "./image.png";
+
 import "./style.css";
+import GoogleIcon from "@mui/icons-material/Google";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import AppleIcon from "@mui/icons-material/Apple";
 
 const theme = createTheme();
 
@@ -26,7 +30,7 @@ export default function MyLogin() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider className="main-theme-login" theme={theme}>
       <Grid container component="main" sx={{ height: "81vh" }}>
         <CssBaseline />
         <Grid
@@ -51,7 +55,7 @@ export default function MyLogin() {
           xs={12}
           sm={8}
           md={5}
-          className="shadow-needed-login"
+          className="shadow-needed-login shadow-none"
           component={Paper}
           elevation={6}
           square
@@ -98,14 +102,39 @@ export default function MyLogin() {
                 autoComplete="current-password"
               />
 
+              <div className="d-flex">
+                <Button
+                  className="mr-1 text-dark social-media-login"
+                  fullWidth
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  <GoogleIcon />
+                </Button>
+                <Button
+                  className="mx-1 text-dark social-media-login"
+                  fullWidth
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  <FacebookIcon />
+                </Button>
+                <Button
+                  className="ml-1 text-dark social-media-login"
+                  fullWidth
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  <AppleIcon />
+                </Button>
+              </div>
               <Button
                 type="submit"
+                className="ml-1"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2, bgcolor: "#6c63ff" }}
               >
                 Sign In
               </Button>
+
               <Grid container>
                 <Grid item>
                   <Link href="#" variant="body2">

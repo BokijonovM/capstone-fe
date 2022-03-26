@@ -472,10 +472,7 @@ export default function MyNavbar() {
                           className="ml-n3 mr-2"
                           spacing={2}
                         >
-                          <Avatar
-                            alt="Remy Sharp"
-                            src="/static/images/avatar/1.jpg"
-                          />
+                          <Avatar alt="M B" src="/static/images/avatar/1.jpg" />
                         </Stack>
                         Username
                         <ChevronDownIcon

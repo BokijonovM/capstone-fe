@@ -1,0 +1,7 @@
+.shadow-needed-sign-up {
+  border-right: 0.1px solid grey !important;
+  box-shadow: none;
+}
+.sign-up-main-grid {
+  border-bottom: 1px solid grey;
+}
