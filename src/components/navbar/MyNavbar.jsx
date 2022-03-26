@@ -1,11 +1,6 @@
 import { Fragment, useState } from "react";
 import { Dialog, Popover, Tab, Transition, Menu } from "@headlessui/react";
-import {
-  MenuIcon,
-  SearchIcon,
-  ShoppingBagIcon,
-  XIcon,
-} from "@heroicons/react/outline";
+import { MenuIcon, SearchIcon, XIcon } from "@heroicons/react/outline";
 import logo from "./logo.png";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import * as React from "react";
