@@ -12,6 +12,7 @@ import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 const navigation = {
   categories: [
@@ -453,7 +454,7 @@ export default function MyNavbar() {
                 <div className="hidden ml-2 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <Link
                     to="/login"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                    className="text-sm py-1 px-3 mr-n3 login-text font-medium text-gray-700 hover:text-gray-800"
                   >
                     Sign in
                   </Link>
@@ -461,17 +462,14 @@ export default function MyNavbar() {
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   <Link
                     to="/register"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                    className="text-sm py-1 px-3 ml-1 font-medium create-account text-gray-700 hover:text-gray-800"
                   >
                     Create account
                   </Link>
                 </div>
 
                 <div className="flex lg:ml-6">
-                  <Menu
-                    as="div"
-                    className="relative inline-block d-none text-left "
-                  >
+                  <Menu as="div" className="relative inline-block text-left ">
                     <div>
                       <Menu.Button className="inline-flex shadow-none border-0 justify-center align-items-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
                         <Stack

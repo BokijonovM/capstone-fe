@@ -1,0 +1,16 @@
+.login-text {
+  text-decoration: none !important;
+}
+.create-account {
+  text-decoration: none !important;
+}
+.login-text:hover {
+  background-color: rgb(235, 235, 235);
+
+  border-radius: 32px;
+}
+.create-account:hover {
+  background-color: rgb(235, 235, 235);
+
+  border-radius: 32px;
+}
