@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -11,7 +12,7 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -20,6 +21,9 @@ import AppleIcon from "@mui/icons-material/Apple";
 const theme = createTheme();
 
 export default function MyLogin() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -27,6 +31,31 @@ export default function MyLogin() {
       email: data.get("email"),
       password: data.get("password"),
     });
+  };
+
+  const handleRegister = async () => {
+    const newPost = {
+      email: email,
+      password: password,
+    };
+    try {
+      let res = await fetch("http://localhost:3001/users/login", {
+        method: "POST",
+        body: JSON.stringify(newPost),
+        headers: { "Content-type": "application/json" },
+      });
+      if (res.status !== 200) alert("you you entered wrong password or email");
+      if (res.ok) {
+        let data = await res.json();
+        console.log(data.posts);
+        localStorage.setItem("MyToken", data.token);
+
+        window.location.href = "/";
+        console.log("Successfully logged in!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -85,6 +114,8 @@ export default function MyLogin() {
                 margin="normal"
                 required
                 fullWidth
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 id="email"
                 label="Email Address"
                 name="email"
@@ -98,6 +129,8 @@ export default function MyLogin() {
                 name="password"
                 label="Password"
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 id="password"
                 autoComplete="current-password"
               />
@@ -131,6 +164,8 @@ export default function MyLogin() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2, bgcolor: "#6c63ff" }}
+                disabled={!email || !password}
+                onClick={() => handleRegister()}
               >
                 Sign In
               </Button>

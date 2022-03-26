@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Dialog, Popover, Tab, Transition, Menu } from "@headlessui/react";
 import { MenuIcon, SearchIcon, XIcon } from "@heroicons/react/outline";
 import logo from "./logo.png";
@@ -6,7 +6,7 @@ import { ChevronDownIcon } from "@heroicons/react/solid";
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
 const navigation = {
@@ -141,7 +141,39 @@ function classNames(...classes) {
 }
 
 export default function MyNavbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const myToken = localStorage.getItem("MyToken");
+  const dataJson = JSON.parse(JSON.stringify(myToken));
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (dataJson) {
+      setIsLoggedIn(true);
+      fetchData(dataJson);
+    }
+  }, []);
   const [open, setOpen] = useState(false);
+
+  const fetchData = async (token) => {
+    try {
+      if (token) {
+        const response = await fetch("http://localhost:3001/users/me", {
+          method: "GET",
+          headers: {
+            authorization: token,
+          },
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setUser(data);
+          console.log(data);
+        }
+      }
+    } catch (error) {
+      console.log("error on fetchData");
+    }
+  };
 
   return (
     <div className="bg-white">
@@ -445,121 +477,130 @@ export default function MyNavbar() {
                     <SearchIcon className="w-6 h-6" aria-hidden="true" />
                   </a>
                 </div>
+                {isLoggedIn ? (
+                  <div className="flex lg:ml-6">
+                    <Menu as="div" className="relative inline-block text-left ">
+                      <div>
+                        <Menu.Button className="inline-flex shadow-none border-0 justify-center align-items-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                          <Stack
+                            direction="row"
+                            className="ml-n3 mr-2"
+                            spacing={2}
+                          >
+                            <Avatar
+                              alt="M B"
+                              src="/static/images/avatar/1.jpg"
+                            />
+                          </Stack>
+                          Username
+                          <ChevronDownIcon
+                            className="-mr-1 ml-2 h-5 w-5"
+                            aria-hidden="true"
+                          />
+                        </Menu.Button>
+                      </div>
 
-                <div className="hidden ml-2 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <Link
-                    to="/login"
-                    className="text-sm py-1 px-3 mr-n3 login-text font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Sign in
-                  </Link>
-
-                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <Link
-                    to="/register"
-                    className="text-sm py-1 px-3 ml-1 font-medium create-account text-gray-700 hover:text-gray-800"
-                  >
-                    Create account
-                  </Link>
-                </div>
-
-                <div className="flex lg:ml-6">
-                  <Menu as="div" className="relative inline-block text-left ">
-                    <div>
-                      <Menu.Button className="inline-flex shadow-none border-0 justify-center align-items-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                        <Stack
-                          direction="row"
-                          className="ml-n3 mr-2"
-                          spacing={2}
+                      <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-100"
+                        enterFrom="transform opacity-0 scale-95"
+                        enterTo="transform opacity-100 scale-100"
+                        leave="transition ease-in duration-75"
+                        leaveFrom="transform opacity-100 scale-100"
+                        leaveTo="transform opacity-0 scale-95"
+                      >
+                        <Menu.Items
+                          style={{ zIndex: "11" }}
+                          className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                         >
-                          <Avatar alt="M B" src="/static/images/avatar/1.jpg" />
-                        </Stack>
-                        Username
-                        <ChevronDownIcon
-                          className="-mr-1 ml-2 h-5 w-5"
-                          aria-hidden="true"
-                        />
-                      </Menu.Button>
-                    </div>
+                          <div className="py-1">
+                            <Menu.Item>
+                              {({ active }) => (
+                                <a
+                                  href="#"
+                                  className={classNames(
+                                    active
+                                      ? "bg-gray-100 text-gray-900"
+                                      : "text-gray-700",
+                                    "block px-4 py-2 text-sm"
+                                  )}
+                                >
+                                  Account settings
+                                </a>
+                              )}
+                            </Menu.Item>
+                            <Menu.Item>
+                              {({ active }) => (
+                                <a
+                                  href="#"
+                                  className={classNames(
+                                    active
+                                      ? "bg-gray-100 text-gray-900"
+                                      : "text-gray-700",
+                                    "block px-4 py-2 text-sm"
+                                  )}
+                                >
+                                  Support
+                                </a>
+                              )}
+                            </Menu.Item>
+                            <Menu.Item>
+                              {({ active }) => (
+                                <a
+                                  href="#"
+                                  className={classNames(
+                                    active
+                                      ? "bg-gray-100 text-gray-900"
+                                      : "text-gray-700",
+                                    "block px-4 py-2 text-sm"
+                                  )}
+                                >
+                                  License
+                                </a>
+                              )}
+                            </Menu.Item>
 
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-100"
-                      enterFrom="transform opacity-0 scale-95"
-                      enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
-                      leaveFrom="transform opacity-100 scale-100"
-                      leaveTo="transform opacity-0 scale-95"
-                    >
-                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <div className="py-1">
-                          <Menu.Item>
-                            {({ active }) => (
-                              <a
-                                href="#"
-                                className={classNames(
-                                  active
-                                    ? "bg-gray-100 text-gray-900"
-                                    : "text-gray-700",
-                                  "block px-4 py-2 text-sm"
-                                )}
-                              >
-                                Account settings
-                              </a>
-                            )}
-                          </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <a
-                                href="#"
-                                className={classNames(
-                                  active
-                                    ? "bg-gray-100 text-gray-900"
-                                    : "text-gray-700",
-                                  "block px-4 py-2 text-sm"
-                                )}
-                              >
-                                Support
-                              </a>
-                            )}
-                          </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <a
-                                href="#"
-                                className={classNames(
-                                  active
-                                    ? "bg-gray-100 text-gray-900"
-                                    : "text-gray-700",
-                                  "block px-4 py-2 text-sm"
-                                )}
-                              >
-                                License
-                              </a>
-                            )}
-                          </Menu.Item>
-                          <form method="POST" action="#">
                             <Menu.Item>
                               {({ active }) => (
                                 <button
-                                  type="submit"
                                   className={classNames(
                                     active
                                       ? "bg-gray-100 text-gray-900"
                                       : "text-gray-700",
                                     "block w-full text-left px-4 py-2 text-sm"
                                   )}
+                                  onClick={() => {
+                                    localStorage.removeItem("MyToken");
+                                    window.location.href = "/";
+                                  }}
                                 >
                                   Sign out
                                 </button>
                               )}
                             </Menu.Item>
-                          </form>
-                        </div>
-                      </Menu.Items>
-                    </Transition>
-                  </Menu>
-                </div>
+                          </div>
+                        </Menu.Items>
+                      </Transition>
+                    </Menu>
+                  </div>
+                ) : (
+                  <div className="hidden ml-2 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                    <Link
+                      to="/login"
+                      className="text-sm py-1 px-3 mr-n3 login-text font-medium text-gray-700 hover:text-gray-800"
+                    >
+                      Sign in
+                    </Link>
+
+                    <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                    <Link
+                      to="/register"
+                      className="text-sm py-1 px-3 ml-1 font-medium create-account text-gray-700 hover:text-gray-800"
+                    >
+                      Create account
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>
