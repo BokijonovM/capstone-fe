@@ -14,3 +14,8 @@
 
   border-radius: 32px;
 }
+.my-mav-main-div-180-line {
+  position: absolute;
+  z-index: 99 !important;
+  width: 100vw;
+}

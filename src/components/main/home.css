@@ -1,0 +1,14 @@
+.login-home-main-div {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: aquamarine;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  z-index: 99999 !important;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-top: -65px !important;
+}

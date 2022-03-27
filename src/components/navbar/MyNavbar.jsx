@@ -177,7 +177,7 @@ export default function MyNavbar() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white my-mav-main-div-180-line">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog
