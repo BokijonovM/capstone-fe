@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Della+Respira&display=swap");
+
 .login-text {
   text-decoration: none !important;
 }
@@ -18,4 +20,20 @@
   position: absolute;
   z-index: 99 !important;
   width: 100vw;
+}
+.jobland-logo-text-part {
+  margin-bottom: 1px;
+  color: #564de5;
+  text-shadow: 0px 0px 25px #564de5;
+  font-weight: 600;
+  font-family: "Della Respira", serif;
+  font-size: 13px;
+  margin-left: 3px;
+  transition: all 0.9s ease !important;
+}
+@media (max-width: 400px) {
+  .jobland-logo-text-part {
+    display: none;
+    transition: all 0.9s ease !important;
+  }
 }

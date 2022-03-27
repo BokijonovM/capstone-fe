@@ -7,14 +7,14 @@ function MyFooter() {
     <div className="footer-div px-3">
       <span>
         Created By{" "}
-        <a href="https://www.linkedin.com/in/mukhsinjon-bokijonov-860491200/">
+        <a href="https://www.linkedin.com/in/bokijonov/">
           Bokijonov Mukhsinjon
         </a>{" "}
         |{" "}
         <span>
           <CopyrightIcon style={{ marginBottom: "2px" }} fontSize="small" />
         </span>{" "}
-        2021 All rights reserved.
+        2022 All rights reserved.
       </span>
     </div>
   );

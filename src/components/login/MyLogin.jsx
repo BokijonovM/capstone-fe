@@ -4,7 +4,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
 import Paper from "@mui/material/Paper";
 import image from "./image.png";
 import Box from "@mui/material/Box";
@@ -47,7 +47,6 @@ export default function MyLogin() {
       if (res.status !== 200) alert("you you entered wrong password or email");
       if (res.ok) {
         let data = await res.json();
-        console.log(data.posts);
         localStorage.setItem("MyToken", data.accessToken);
         window.location.href = "/";
         console.log("Successfully logged in!");
@@ -59,7 +58,7 @@ export default function MyLogin() {
 
   return (
     <ThemeProvider className="main-theme-login" theme={theme}>
-      <Grid container component="main" sx={{ height: "81vh" }}>
+      <Grid container component="main" sx={{ height: "82vh", zIndex: "-1" }}>
         <CssBaseline />
         <Grid
           item
@@ -89,7 +88,8 @@ export default function MyLogin() {
         >
           <Box
             sx={{
-              my: 8,
+              mt: 6,
+              mb: 10,
               mx: 4,
               display: "flex",
               flexDirection: "column",
@@ -173,9 +173,7 @@ export default function MyLogin() {
 
               <Grid container>
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
+                  <Link to="/register">{"Don't have an account? Sign Up"}</Link>
                 </Grid>
               </Grid>
             </Box>

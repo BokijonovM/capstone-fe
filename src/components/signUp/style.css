@@ -1,7 +1,34 @@
 .shadow-needed-sign-up {
-  border-right: 0.1px solid grey !important;
+  /* border-right: 0.1px solid grey !important; */
   box-shadow: none;
 }
 .sign-up-main-grid {
   border-bottom: 1px solid grey;
+}
+.modal-sign-up-error {
+  display: flex;
+  justify-content: center;
+  align-content: center !important;
+  position: absolute;
+  z-index: 11;
+  margin-top: -200px;
+}
+.deactivate-account {
+  text-align: start;
+}
+.modal-2-buttons {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .modal-sign-up-error {
+    margin-bottom: 100px !important;
+  }
+}
+.login-in-sing-up-modal {
+  background-color: #564de5;
+}
+.login-in-sing-up-modal:hover {
+  background-color: #655be7;
 }

@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect } from "react";
 import { Dialog, Popover, Tab, Transition, Menu } from "@headlessui/react";
 import { MenuIcon, SearchIcon, XIcon } from "@heroicons/react/outline";
-import logo from "./logo.png";
+import logo from "./logo1.png";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
@@ -207,7 +207,10 @@ export default function MyNavbar() {
             leaveTo="-translate-x-full"
           >
             <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-              <div className="px-4 pt-5 pb-2 flex">
+              <div
+                className="px-4 pt-5 pb-2 flex"
+                style={{ marginTop: "60px" }}
+              >
                 <button
                   type="button"
                   className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
@@ -340,9 +343,14 @@ export default function MyNavbar() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <Link to="/">
+                <Link
+                  className="d-flex align-items-center"
+                  style={{ textDecoration: "none" }}
+                  to="/"
+                >
                   <span className="sr-only">Workflow</span>
                   <img className="h-8 w-auto" src={logo} alt="" />
+                  <h6 className="jobland-logo-text-part">JOBLAND</h6>
                 </Link>
               </div>
 
@@ -472,7 +480,7 @@ export default function MyNavbar() {
 
               <div className="ml-auto flex items-center">
                 {/* Search */}
-                <div className="flex lg:ml-6">
+                <div className="hidden flex lg:ml-6">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <SearchIcon className="w-6 h-6" aria-hidden="true" />
@@ -585,7 +593,7 @@ export default function MyNavbar() {
                     </Menu>
                   </div>
                 ) : (
-                  <div className="hidden ml-2 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  <div className="ml-2 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                     <Link
                       to="/login"
                       className="text-sm py-1 px-3 mr-n3 login-text font-medium text-gray-700 hover:text-gray-800"
