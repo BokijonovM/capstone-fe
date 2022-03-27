@@ -62,7 +62,6 @@ export default function MyLogin() {
       <Grid container component="main" sx={{ height: "81vh" }}>
         <CssBaseline />
         <Grid
-          style={{ width: "10px" }}
           item
           xs={false}
           sm={4}

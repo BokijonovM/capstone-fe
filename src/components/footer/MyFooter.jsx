@@ -4,17 +4,18 @@ import "./style.css";
 
 function MyFooter() {
   return (
-    <div className="footer-div">
-      Created By{" "}
-      <a
-        className=" mx-1 d-flex align-items-center"
-        style={{ textDecoration: "none" }}
-        href="/"
-      >
-        {" "}
-        Bokijonov Mukhsinjon{" "}
-      </a>
-      | 2022 All rights reserved.
+    <div className="footer-div px-3">
+      <span>
+        Created By{" "}
+        <a href="https://www.linkedin.com/in/mukhsinjon-bokijonov-860491200/">
+          Bokijonov Mukhsinjon
+        </a>{" "}
+        |{" "}
+        <span>
+          <CopyrightIcon style={{ marginBottom: "2px" }} fontSize="small" />
+        </span>{" "}
+        2021 All rights reserved.
+      </span>
     </div>
   );
 }
