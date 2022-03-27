@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Della+Respira&display=swap");
+
+.profile-col-1 {
+  width: 22vw !important;
+}
+
+.user-image-profile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.image-cont-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+.welcome-text {
+  font-family: "Della Respira", serif;
+}
+.username-h6-tag {
+  font-family: "Della Respira", serif;
+  font-weight: 600;
+}
+.all-icons-mr-3-meeded {
+  margin-right: 20px;
+  margin-left: 0px;
+}
+@media (max-width: 880px) {
+  .span-sidebar-for-all-profile {
+    display: none;
+  }
+  .profile-col-1 {
+    width: 10vw !important;
+  }
+  .welcome-text,
+  .username-h6-tag,
+  .user-image-profile {
+    display: none;
+  }
+}
+.my-profile-btn {
+  background: rgb(86, 77, 229);
+  background: linear-gradient(
+    90deg,
+    rgba(86, 77, 229, 0.47076330532212884) 0%,
+    rgba(86, 77, 229, 0.1346288515406162) 35%,
+    rgba(0, 212, 255, 0) 100%
+  );
+  border-radius: 0% !important;
+  border-left: 18px solid #564de5 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  padding-left: 20px !important;
+  font-weight: 600 !important;
+  color: #564de5 !important;
+}
+.my-profile-btn-1 {
+  border-radius: 0% !important;
+  border-left: 18px solid transparent !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  padding-left: 20px !important;
+  font-weight: 600 !important;
+  color: black !important;
+}

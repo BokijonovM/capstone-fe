@@ -13,21 +13,21 @@ const navigation = {
   categories: [
     {
       id: "women",
-      name: "Women",
+      name: "Junior",
       featured: [
         {
-          name: "New Arrivals",
+          name: "Popular",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg",
+            "https://i.pinimg.com/originals/b2/9c/c1/b29cc1b8a9e57f0a7e247d8e5719d730.jpg",
           imageAlt:
             "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
         {
-          name: "Basic Tees",
+          name: "JobLand Recommends",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg",
+            "https://res.cloudinary.com/dubf5nkhu/image/upload/v1648386127/oct21/Erland_fashion_brand_art_design_logo_muyx3c.jpg",
           imageAlt:
             "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
         },
@@ -35,61 +35,71 @@ const navigation = {
       sections: [
         {
           id: "clothing",
-          name: "Clothing",
+          name: "Technologies",
           items: [
-            { name: "Tops", href: "#" },
-            { name: "Dresses", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Denim", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
+            { name: "React", href: "#" },
+            { name: "Angular", href: "#" },
+            { name: "Python", href: "#" },
+            { name: "Java", href: "#" },
+            { name: "PHP", href: "#" },
+            { name: "Ruby", href: "#" },
+            { name: ".NET", href: "#" },
+            { name: "Scala", href: "#" },
+            { name: "C", href: "#" },
+            { name: "C++", href: "#" },
+            { name: "Mobile", href: "#" },
+            { name: "JavaScript", href: "#" },
+            { name: "Gama", href: "#" },
+            { name: "Security", href: "#" },
+            { name: "Data", href: "#" },
           ],
         },
         {
           id: "accessories",
-          name: "Accessories",
+          name: "By Title",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
+            { name: "Full Stack", href: "#" },
+            { name: "Recruiter", href: "#" },
+            { name: "Frontend", href: "#" },
+            { name: "Backend", href: "#" },
+            { name: ".NET", href: "#" },
+            { name: "Data Engineer", href: "#" },
+            { name: "QA Engineer", href: "#" },
+            { name: "Team Leader", href: "#" },
+            { name: "DevOps", href: "#" },
+            { name: "Data Scientist", href: "#" },
           ],
         },
-        {
-          id: "brands",
-          name: "Brands",
-          items: [
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Significant Other", href: "#" },
-          ],
-        },
+        // {
+        //   id: "brands",
+        //   name: "Brands",
+        //   items: [
+        //     { name: "Full Nelson", href: "#" },
+        //     { name: "My Way", href: "#" },
+        //     { name: "Re-Arranged", href: "#" },
+        //     { name: "Counterfeit", href: "#" },
+        //     { name: "Significant Other", href: "#" },
+        //   ],
+        // },
       ],
     },
     {
       id: "men",
-      name: "Men",
+      name: "Middle +",
       featured: [
         {
-          name: "New Arrivals",
+          name: "JobLand Recommends",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
+            "https://res.cloudinary.com/dubf5nkhu/image/upload/v1648386127/oct21/Erland_fashion_brand_art_design_logo_muyx3c.jpg",
           imageAlt:
             "Drawstring top with elastic loop closure and textured interior padding.",
         },
         {
-          name: "Artwork Tees",
+          name: "Popular",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
+            "https://image.freepik.com/free-vector/we-are-hiring-neon-sign-neon_77399-360.jpg",
           imageAlt:
             "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
         },
@@ -97,37 +107,39 @@ const navigation = {
       sections: [
         {
           id: "clothing",
-          name: "Clothing",
+          name: "Technologies",
           items: [
-            { name: "Tops", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
+            { name: "React", href: "#" },
+            { name: "Angular", href: "#" },
+            { name: "Python", href: "#" },
+            { name: "Java", href: "#" },
+            { name: "PHP", href: "#" },
+            { name: "Ruby", href: "#" },
+            { name: ".NET", href: "#" },
+            { name: "Scala", href: "#" },
+            { name: "C", href: "#" },
+            { name: "C++", href: "#" },
+            { name: "Mobile", href: "#" },
+            { name: "JavaScript", href: "#" },
+            { name: "Gama", href: "#" },
+            { name: "Security", href: "#" },
+            { name: "Data", href: "#" },
           ],
         },
         {
           id: "accessories",
-          name: "Accessories",
+          name: "By Title",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
-          ],
-        },
-        {
-          id: "brands",
-          name: "Brands",
-          items: [
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
+            { name: "Full Stack", href: "#" },
+            { name: "Recruiter", href: "#" },
+            { name: "Frontend", href: "#" },
+            { name: "Backend", href: "#" },
+            { name: ".NET", href: "#" },
+            { name: "Data Engineer", href: "#" },
+            { name: "QA Engineer", href: "#" },
+            { name: "Team Leader", href: "#" },
+            { name: "DevOps", href: "#" },
+            { name: "Data Scientist", href: "#" },
           ],
         },
       ],
@@ -271,9 +283,6 @@ export default function MyNavbar() {
                               />
                               {item.name}
                             </a>
-                            <p aria-hidden="true" className="mt-1">
-                              Shop now
-                            </p>
                           </div>
                         ))}
                       </div>
@@ -288,10 +297,10 @@ export default function MyNavbar() {
                           <ul
                             role="list"
                             aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                            className="mt-6 flex flex-col space-y-6"
+                            className="mt-6 flex flex-col space-y-6 row__posters"
                           >
                             {section.items.map((item) => (
-                              <li key={item.name} className="flow-root">
+                              <li key={item.name} className="flow-root  ">
                                 <a
                                   href={item.href}
                                   className="-m-2 p-2 block text-gray-500"
@@ -416,12 +425,6 @@ export default function MyNavbar() {
                                             />
                                             {item.name}
                                           </a>
-                                          <p
-                                            aria-hidden="true"
-                                            className="mt-1"
-                                          >
-                                            Shop now
-                                          </p>
                                         </div>
                                       ))}
                                     </div>
@@ -437,7 +440,7 @@ export default function MyNavbar() {
                                           <ul
                                             role="list"
                                             aria-labelledby={`${section.name}-heading`}
-                                            className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                                            className="mt-6 space-y-6 sm:mt-4 sm:space-y-4 row__posters-1 "
                                           >
                                             {section.items.map((item) => (
                                               <li
@@ -497,7 +500,7 @@ export default function MyNavbar() {
                             spacing={2}
                           >
                             <Avatar
-                              alt="M B"
+                              alt={user?.firstName}
                               src="/static/images/avatar/1.jpg"
                             />
                           </Stack>
@@ -525,8 +528,9 @@ export default function MyNavbar() {
                           <div className="py-1">
                             <Menu.Item>
                               {({ active }) => (
-                                <a
-                                  href="#"
+                                <Link
+                                  to="/profile"
+                                  style={{ textDecoration: "none" }}
                                   className={classNames(
                                     active
                                       ? "bg-gray-100 text-gray-900"
@@ -535,7 +539,7 @@ export default function MyNavbar() {
                                   )}
                                 >
                                   Account settings
-                                </a>
+                                </Link>
                               )}
                             </Menu.Item>
                             <Menu.Item>

@@ -7,6 +7,8 @@ import MyFooter from "./components/footer/MyFooter";
 import MyLogin from "./components/login/MyLogin";
 import MySignUp from "./components/signUp/MySignUp";
 import MyHome from "./components/main/MyHome";
+import MYProfile from "./components/profile/MYProfile";
+import MySettings from "./components/settings/MySettings";
 
 function App() {
   return (
@@ -17,8 +19,10 @@ function App() {
           <Routes>
             <Route path="/" element={<MyMain />} />
             <Route path="/login" element={<MyLogin />} />
+            <Route path="/profile" element={<MYProfile />} />
             <Route path="/home" element={<MyHome />} />
             <Route path="/register" element={<MySignUp />} />
+            <Route path="/settings" element={<MySettings />} />
           </Routes>
         </div>
         <MyFooter />

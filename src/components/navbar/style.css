@@ -17,7 +17,7 @@
   border-radius: 32px;
 }
 .my-mav-main-div-180-line {
-  position: absolute;
+  position: fixed;
   z-index: 99 !important;
   width: 100vw;
 }
@@ -36,4 +36,24 @@
     display: none;
     transition: all 0.9s ease !important;
   }
+}
+.row__posters {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100px;
+}
+
+.row__posters-1 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 200px;
+}
+.row__posters-1::-webkit-scrollbar {
+  display: none;
 }
