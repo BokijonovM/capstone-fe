@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 import { Row, Col } from "react-bootstrap";
 import Button from "@mui/material/Button";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
@@ -9,10 +8,8 @@ import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOu
 import BusinessIcon from "@mui/icons-material/Business";
 import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
 import { useNavigate } from "react-router-dom";
-import "./col2.css";
-import "./col3.css";
 
-function MYProfile() {
+function MyJobs() {
   const navigate = useNavigate();
   return (
     <div>
@@ -29,7 +26,7 @@ function MYProfile() {
           </div>
           <Button
             onClick={() => navigate("/profile")}
-            className="my-profile-btn py-3 mt-4"
+            className="my-profile-btn-1 py-3 mt-4"
             size="medium"
           >
             <PersonOutlineOutlinedIcon className="all-icons-mr-3-meeded" />
@@ -37,7 +34,7 @@ function MYProfile() {
           </Button>
           <Button
             onClick={() => navigate("/my-jobs")}
-            className="my-profile-btn-1 py-3"
+            className="my-profile-btn py-3"
             size="medium"
           >
             <WorkOutlineOutlinedIcon className="all-icons-mr-3-meeded" />
@@ -85,7 +82,7 @@ function MYProfile() {
       <Row className="row-2-bottom-bar">
         <Button
           onClick={() => navigate("/profile")}
-          className="my-profile-bottom-btn"
+          className="my-profile-bottom-btn-1"
           size="medium"
         >
           <PersonOutlineOutlinedIcon className="" />
@@ -107,7 +104,7 @@ function MYProfile() {
         </Button>
         <Button
           onClick={() => navigate("/my-jobs")}
-          className="my-profile-bottom-btn-1"
+          className="my-profile-bottom-btn"
           size="medium"
         >
           <WorkOutlineOutlinedIcon className="" />
@@ -117,4 +114,4 @@ function MYProfile() {
   );
 }
 
-export default MYProfile;
+export default MyJobs;
