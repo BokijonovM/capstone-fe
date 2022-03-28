@@ -1,0 +1,15 @@
+.profile-col-2 {
+  width: 40vw !important;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 880px) {
+  .profile-col-2 {
+    width: 46vw !important;
+  }
+}
+@media (max-width: 800px) {
+  .profile-col-2 {
+    width: 100vw !important;
+  }
+}

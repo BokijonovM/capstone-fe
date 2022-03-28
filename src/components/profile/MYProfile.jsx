@@ -9,12 +9,14 @@ import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOu
 import BusinessIcon from "@mui/icons-material/Business";
 import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
 import { useNavigate } from "react-router-dom";
+import "./col2.css";
+import "./col3.css";
 
 function MYProfile() {
   const navigate = useNavigate();
   return (
     <div>
-      <Row>
+      <Row className="row-1-main-place">
         <div className="profile-col-1 mr-0 pr-0 pt-3 pb-5">
           <div className="image-cont-div">
             <img
@@ -77,8 +79,39 @@ function MYProfile() {
             <span className="span-sidebar-for-all-profile">Sign out</span>
           </Button>
         </div>
-        <div>Col2</div>
-        <div>Col3</div>
+        <div className="profile-col-2">Col2</div>
+        <div className="profile-col-3">Col3</div>
+      </Row>
+      <Row className="row-2-bottom-bar">
+        <Button
+          onClick={() => navigate("/profile")}
+          className="my-profile-bottom-btn"
+          size="medium"
+        >
+          <PersonOutlineOutlinedIcon className="" />
+        </Button>
+        <Button
+          onClick={() => navigate("/messages")}
+          className="my-profile-bottom-btn-1"
+          size="medium"
+        >
+          <ForumOutlinedIcon className="" />
+        </Button>
+
+        <Button
+          onClick={() => navigate("/profile")}
+          className="my-profile-bottom-btn-1"
+          size="medium"
+        >
+          <BusinessIcon className="" />
+        </Button>
+        <Button
+          onClick={() => navigate("/messages")}
+          className="my-profile-bottom-btn-1"
+          size="medium"
+        >
+          <WorkOutlineOutlinedIcon className="" />
+        </Button>
       </Row>
     </div>
   );

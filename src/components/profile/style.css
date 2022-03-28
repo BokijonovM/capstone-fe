@@ -2,6 +2,8 @@
 
 .profile-col-1 {
   width: 22vw !important;
+  border-right: 0.2px solid rgb(228, 228, 228);
+  transition: all 0.3s ease !important;
 }
 
 .user-image-profile {
@@ -34,11 +36,17 @@
   }
   .profile-col-1 {
     width: 10vw !important;
+    border-right: 0.2px solid rgb(228, 228, 228);
+    transition: all 0.3s ease !important;
   }
   .welcome-text,
-  .username-h6-tag,
-  .user-image-profile {
+  .username-h6-tag {
     display: none;
+  }
+  .user-image-profile {
+    width: 40px;
+    height: 40px;
+    margin-left: 0px;
   }
 }
 .my-profile-btn {
@@ -50,7 +58,7 @@
     rgba(0, 212, 255, 0) 100%
   );
   border-radius: 0% !important;
-  border-left: 18px solid #564de5 !important;
+  border-left: 4px solid #564de5 !important;
   width: 100% !important;
   display: flex !important;
   justify-content: flex-start !important;
@@ -60,11 +68,73 @@
 }
 .my-profile-btn-1 {
   border-radius: 0% !important;
-  border-left: 18px solid transparent !important;
+  border-left: 4px solid transparent !important;
   width: 100% !important;
   display: flex !important;
   justify-content: flex-start !important;
   padding-left: 20px !important;
   font-weight: 600 !important;
   color: black !important;
+}
+.row-1-main-place {
+  width: 100vw !important;
+  right: 0;
+  left: 0;
+  max-width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* bottom */
+.row-2-bottom-bar {
+  width: 100vw !important;
+  right: 0;
+  left: 0;
+  position: fixed;
+  bottom: 0;
+  height: 65px;
+  max-width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  border-top: 0.2px solid rgb(228, 228, 228);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(255, 255, 255);
+  display: none;
+  transition: all 0.3s ease !important;
+}
+.my-profile-bottom-btn {
+  background: rgb(86, 77, 229);
+  background: linear-gradient(
+    0deg,
+    rgba(86, 77, 229, 0.31390056022408963) 0%,
+    rgba(86, 77, 229, 0) 100%
+  );
+  height: 100%;
+  border-radius: 0% !important;
+  border-bottom: 4px solid #564de5 !important;
+  color: #564de5 !important;
+  font-weight: 600 !important;
+  width: 25%;
+}
+.my-profile-bottom-btn-1 {
+  height: 100%;
+  border-radius: 0% !important;
+  border-bottom: 4px solid transparent !important;
+  color: black !important;
+  font-weight: 600 !important;
+  width: 25%;
+}
+@media (max-width: 800px) {
+  .row-2-bottom-bar {
+    display: block;
+  }
+  .profile-col-1 {
+    display: none;
+  }
+  .row-1-main-place {
+    flex-direction: column !important;
+  }
 }
