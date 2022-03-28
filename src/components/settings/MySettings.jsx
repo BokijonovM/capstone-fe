@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 import { Row, Col } from "react-bootstrap";
 import Button from "@mui/material/Button";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
