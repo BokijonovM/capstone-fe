@@ -60,12 +60,3 @@
     stroke-dashoffset: 0;
   }
 }
-
-@keyframes fill-white {
-  from {
-    fill: transparent;
-  }
-  to {
-    fill: white !important;
-  }
-}

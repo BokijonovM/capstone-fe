@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./home.css";
-import { useQueryParameter } from "../hooks/index.js";
+import { useQueryParameter } from "./index.js";
 
 function MyHome() {
   const token =
