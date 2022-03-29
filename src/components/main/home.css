@@ -2,7 +2,7 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
-  background-color: aquamarine;
+  background-color: #564de5;
   overflow-y: hidden;
   overflow-x: hidden;
   z-index: 99999 !important;
@@ -11,4 +11,61 @@
   align-content: center;
   align-items: center;
   margin-top: -65px !important;
+  padding: 200px;
+}
+@media (max-width: 700px) {
+  .login-home-main-div {
+    padding: 50px;
+  }
+}
+
+#svg-text-home path:nth-child(2) {
+  stroke-dasharray: 540;
+  stroke-dashoffset: 540;
+  animation: line-anime 2s ease forwards 0.9s;
+}
+#svg-text-home path:nth-child(3) {
+  stroke-dasharray: 982;
+  stroke-dashoffset: 982;
+  animation: line-anime 2s ease forwards 0.7s;
+}
+#svg-text-home path:nth-child(4) {
+  stroke-dasharray: 1059;
+  stroke-dashoffset: 1059;
+  animation: line-anime 2s ease forwards 0.5s;
+}
+#svg-text-home path:nth-child(5) {
+  stroke-dasharray: 516;
+  stroke-dashoffset: 516;
+  animation: line-anime 2s ease forwards 0.9s;
+}
+#svg-text-home path:nth-child(6) {
+  stroke-dasharray: 851;
+  stroke-dashoffset: 851;
+  animation: line-anime 2s ease forwards 0.8s;
+}
+#svg-text-home path:nth-child(7) {
+  stroke-dasharray: 1049;
+  stroke-dashoffset: 1049;
+  animation: line-anime 2s ease forwards 0.6s;
+}
+
+#svg-text-home path:nth-child(8) {
+  stroke-dasharray: 992;
+  stroke-dashoffset: 992;
+  animation: line-anime 2s ease forwards 0.9s;
+}
+@keyframes line-anime {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill-white {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: white !important;
+  }
 }
