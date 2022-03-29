@@ -31,7 +31,7 @@
   margin-left: 3px;
   transition: all 0.9s ease !important;
 }
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .jobland-logo-text-part {
     display: none;
     transition: all 0.9s ease !important;
@@ -56,4 +56,21 @@
 }
 .row__posters-1::-webkit-scrollbar {
   display: none;
+}
+.search-component-div-cont {
+  position: fixed;
+  top: 70px;
+  right: 240px;
+  z-index: 99;
+  background-color: white;
+}
+@media (max-width: 750px) {
+  .search-component-div-cont {
+    right: 50px;
+  }
+}
+@media (max-width: 450px) {
+  .search-component-div-cont {
+    right: 20px;
+  }
 }

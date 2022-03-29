@@ -8,6 +8,8 @@ import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
+import MySearch from "./MySearch";
+import TextField from "@mui/material/TextField";
 
 const navigation = {
   categories: [
@@ -158,6 +160,7 @@ export default function MyNavbar() {
   const dataJson = JSON.parse(JSON.stringify(myToken));
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const [isSearch, setIsSearch] = useState(false);
 
   useEffect(() => {
     if (dataJson) {
@@ -483,11 +486,22 @@ export default function MyNavbar() {
 
               <div className="ml-auto flex items-center">
                 {/* Search */}
-                <div className="hidden flex lg:ml-6">
+                <div className="flex lg:ml-6">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
-                    <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                    <SearchIcon
+                      className="w-6 h-6"
+                      aria-hidden="true"
+                      onClick={() => setIsSearch(!isSearch)}
+                    />
                   </a>
+                  {isSearch ? (
+                    <div className="search-component-div-cont">
+                      <MySearch />
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 {isLoggedIn ? (
                   <div className="flex lg:ml-6">
