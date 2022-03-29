@@ -79,8 +79,13 @@ function MYProfile() {
             <span className="span-sidebar-for-all-profile">Sign out</span>
           </Button>
         </div>
-        <div className="profile-col-2">Col2</div>
-        <div className="profile-col-3">Col3</div>
+        <div className="profile-col-2">
+          <div className="col-2-1st-div"></div>
+        </div>
+        <div className="profile-col-3">
+          {" "}
+          <div className="col-3-1st-div"></div>
+        </div>
       </Row>
       <Row className="row-2-bottom-bar">
         <Button

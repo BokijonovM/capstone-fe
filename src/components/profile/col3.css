@@ -4,6 +4,16 @@
   display: flex;
   justify-content: center;
 }
+
+.col-3-1st-div {
+  background-color: white;
+  width: 100%;
+  margin: 20px;
+  margin-left: 0;
+  height: 100vh;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 @media (max-width: 880px) {
   .profile-col-3 {
     width: 43vw !important;
@@ -12,5 +22,8 @@
 @media (max-width: 800px) {
   .profile-col-3 {
     width: 100vw !important;
+  }
+  .col-3-1st-div {
+    margin-left: 20px;
   }
 }
