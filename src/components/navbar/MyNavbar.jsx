@@ -9,7 +9,7 @@ import Stack from "@mui/material/Stack";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import MySearch from "./MySearch";
-import TextField from "@mui/material/TextField";
+import { useDispatch, useSelector } from "react-redux";
 
 const navigation = {
   categories: [
@@ -155,6 +155,7 @@ function classNames(...classes) {
 }
 
 export default function MyNavbar() {
+  const dispatch = useDispatch();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const myToken = localStorage.getItem("MyToken");
   const dataJson = JSON.parse(JSON.stringify(myToken));
