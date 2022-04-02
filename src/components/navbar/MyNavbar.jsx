@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import MySearch from "./MySearch";
 import { useDispatch, useSelector } from "react-redux";
-
+import { setUserInfoAction } from "../../redux/action";
 const navigation = {
   categories: [
     {
@@ -185,6 +185,7 @@ export default function MyNavbar() {
           const data = await response.json();
           setUser(data);
           console.log(data);
+          dispatch(setUserInfoAction(data));
         }
       }
     } catch (error) {

@@ -11,8 +11,11 @@ import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
 import { useNavigate } from "react-router-dom";
 import "./col2.css";
 import "./col3.css";
+import { useDispatch, useSelector } from "react-redux";
 
 function MYProfile() {
+  const dispatch = useDispatch();
+  const userMe = useSelector((state) => state.userMe);
   const navigate = useNavigate();
   return (
     <div>
@@ -21,11 +24,11 @@ function MYProfile() {
           <div className="image-cont-div">
             <img
               className="user-image-profile"
-              src="https://images.unsplash.com/photo-1648330197078-c6742e61d227?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"
+              src={userMe.image}
               alt="profile"
             />
             <h6 className="mb-0 mt-2 welcome-text">Welcome</h6>
-            <h6 className="mb-0 username-h6-tag">username</h6>
+            <h6 className="mb-0 username-h6-tag">{userMe.firstName}</h6>
           </div>
           <Button
             onClick={() => navigate("/profile")}
