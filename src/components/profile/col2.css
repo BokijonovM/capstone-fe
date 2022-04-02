@@ -2,6 +2,7 @@
   width: 40vw !important;
   display: flex;
   justify-content: center;
+  animation: 1s ease-out 0s 1 slideInLeftProfile;
 }
 @media (max-width: 880px) {
   .profile-col-2 {
@@ -20,4 +21,37 @@
   height: 100vh;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+@keyframes slideInLeftProfile {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.edit-image-main-div {
+  position: relative;
+}
+.edit-user-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.edit-user-image:hover {
+  filter: blur(2px);
+  cursor: pointer;
+}
+.edit-icon-image {
+  position: absolute;
+  font-size: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user-info-text-fields {
+  text-decoration: none;
 }

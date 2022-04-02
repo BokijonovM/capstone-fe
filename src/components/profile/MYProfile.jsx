@@ -14,9 +14,20 @@ import "./col3.css";
 import { useDispatch, useSelector } from "react-redux";
 import EditIcon from "@mui/icons-material/Edit";
 import CheckIcon from "@mui/icons-material/Check";
+import TextField from "@mui/material/TextField";
+import { setUserInfoAction } from "../../redux/action";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import InputAdornment from "@mui/material/InputAdornment";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 function MYProfile() {
-  const [editFirstName, setEditFirstName] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
+  const [gitHub, setGitHub] = useState("");
+  const [city, setCity] = useState("");
   const dispatch = useDispatch();
   const userMe = useSelector((state) => state.userMe);
   const navigate = useNavigate();
@@ -88,28 +99,106 @@ function MYProfile() {
         <div className="profile-col-2">
           <div className="p-3 col-2-1st-div">
             <div className="d-flex pb-3  justify-content-between w-100 align-items-center">
-              <p className="mb-0">USER DETAILS</p>
-              <EditIcon
-                onClick={() => setEditFirstName(true)}
-                fontSize="small"
-              />
+              <h6 className="mb-0">USER DETAILS</h6>
             </div>
-
-            <div className="">
-              <Form.Group controlId="formBasicFirstName">
-                <Form.Control
-                  type="firstName"
-                  placeholder="Edit FirstName"
-                  className="my-n3 p-0 shadow-none border-0"
-                  style={{ fontSize: "20px", fontWeight: "600" }}
-                  defaultValue={userMe.firstName}
-                />
-              </Form.Group>
+            <div className="d-flex edit-image-main-div justify-content-center mb-5">
+              <img className="edit-user-image" src={userMe.image} alt="mine" />
+              <CameraAltIcon fontSize="large" className="edit-icon-image" />
+            </div>
+            <div className="user-info-text-fields-main-div">
+              <TextField
+                className="w-100 user-info-text-fields"
+                id="outlined-basic"
+                defaultValue={userMe.firstName}
+                onChange={(e) => {
+                  setFirstName(e.target.value);
+                }}
+                label="First name"
+                variant="outlined"
+                size="small"
+              />
+              <TextField
+                className="w-100 user-info-text-fields mt-4"
+                id="outlined-basic"
+                defaultValue={userMe.lastName}
+                onChange={(e) => {
+                  setLastName(e.target.value);
+                }}
+                label="Last name"
+                variant="outlined"
+                size="small"
+              />
+              <TextField
+                className="w-100 user-info-text-fields mt-4"
+                id="outlined-basic"
+                defaultValue={userMe.city}
+                onChange={(e) => {
+                  setCity(e.target.value);
+                }}
+                label="City"
+                variant="outlined"
+                size="small"
+              />
+              <TextField
+                className="w-100 user-info-text-fields mt-4"
+                id="outlined-multiline-static"
+                label="About me"
+                defaultValue={userMe.aboutMe}
+                // onChange={(e) => {
+                //   setCity(e.target.value);
+                // }}
+                multiline
+                rows={6}
+                variant="outlined"
+              />
             </div>
           </div>
         </div>
         <div className="profile-col-3">
-          <div className="col-3-1st-div"></div>
+          <div className="col-3-1st-div p-3">
+            <div className="d-flex pb-3  justify-content-between w-100 align-items-center">
+              <h6 className="mb-0">UPLOAD CV</h6>
+            </div>
+            <div>
+              <TextField
+                className="w-100 user-info-text-fields mt-3"
+                id="outlined-basic"
+                defaultValue={userMe.linkedin}
+                onChange={(e) => {
+                  setLinkedIn(e.target.value);
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LinkedInIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                label="LinkedIn"
+                variant="outlined"
+                size="small"
+              />
+              <TextField
+                className="w-100 user-info-text-fields mt-4"
+                id="outlined-basic"
+                defaultValue={userMe.github}
+                onChange={(e) => {
+                  setGitHub(e.target.value);
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <GitHubIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                label="GitHub"
+                variant="outlined"
+                size="small"
+              />
+            </div>
+            <div className="upload-cv-main-div"></div>
+          </div>
         </div>
       </Row>
       <Row className="row-2-bottom-bar">
