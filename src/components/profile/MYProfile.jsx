@@ -21,6 +21,13 @@ import InputAdornment from "@mui/material/InputAdornment";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import PhoneIcon from "@mui/icons-material/Phone";
+import DeleteIcon from "@mui/icons-material/Delete";
+import SaveIcon from "@mui/icons-material/Save";
 
 function MYProfile() {
   const [firstName, setFirstName] = useState("");
@@ -28,9 +35,16 @@ function MYProfile() {
   const [linkedIn, setLinkedIn] = useState("");
   const [gitHub, setGitHub] = useState("");
   const [city, setCity] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [aboutMe, setAboutMe] = useState("");
   const dispatch = useDispatch();
   const userMe = useSelector((state) => state.userMe);
   const navigate = useNavigate();
+  const [experience, setExperience] = useState("");
+
+  const handleChangeExp = (event) => {
+    setExperience(event.target.value);
+  };
   return (
     <div>
       <Row className="row-1-main-place">
@@ -101,33 +115,35 @@ function MYProfile() {
             <div className="d-flex pb-3  justify-content-between w-100 align-items-center">
               <h6 className="mb-0">USER DETAILS</h6>
             </div>
-            <div className="d-flex edit-image-main-div justify-content-center mb-5">
+            <div className="d-flex edit-image-main-div justify-content-center mb-4">
               <img className="edit-user-image" src={userMe.image} alt="mine" />
               <CameraAltIcon fontSize="large" className="edit-icon-image" />
             </div>
             <div className="user-info-text-fields-main-div">
-              <TextField
-                className="w-100 user-info-text-fields"
-                id="outlined-basic"
-                defaultValue={userMe.firstName}
-                onChange={(e) => {
-                  setFirstName(e.target.value);
-                }}
-                label="First name"
-                variant="outlined"
-                size="small"
-              />
-              <TextField
-                className="w-100 user-info-text-fields mt-4"
-                id="outlined-basic"
-                defaultValue={userMe.lastName}
-                onChange={(e) => {
-                  setLastName(e.target.value);
-                }}
-                label="Last name"
-                variant="outlined"
-                size="small"
-              />
+              <div className="d-flex align-items-center justify-content-between">
+                <TextField
+                  className="w-100 user-info-text-fields mr-1"
+                  id="outlined-basic"
+                  defaultValue={userMe.firstName}
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                  }}
+                  label="First name"
+                  variant="outlined"
+                  size="small"
+                />
+                <TextField
+                  className="w-100 user-info-text-fields ml-1"
+                  id="outlined-basic"
+                  defaultValue={userMe.lastName}
+                  onChange={(e) => {
+                    setLastName(e.target.value);
+                  }}
+                  label="Last name"
+                  variant="outlined"
+                  size="small"
+                />
+              </div>
               <TextField
                 className="w-100 user-info-text-fields mt-4"
                 id="outlined-basic"
@@ -144,9 +160,9 @@ function MYProfile() {
                 id="outlined-multiline-static"
                 label="About me"
                 defaultValue={userMe.aboutMe}
-                // onChange={(e) => {
-                //   setCity(e.target.value);
-                // }}
+                onChange={(e) => {
+                  setAboutMe(e.target.value);
+                }}
                 multiline
                 rows={6}
                 variant="outlined"
@@ -196,8 +212,58 @@ function MYProfile() {
                 variant="outlined"
                 size="small"
               />
+              <TextField
+                className="w-100 user-info-text-fields mt-4"
+                id="outlined-basic"
+                defaultValue={userMe.phoneNumber}
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <PhoneIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                label="Phone number"
+                variant="outlined"
+                size="small"
+              />
+              <FormControl className="mt-4" size="small" fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Experience
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={experience}
+                  label="Experience"
+                  size="small"
+                  onChange={handleChangeExp}
+                >
+                  <MenuItem value={0}>0-2 years</MenuItem>
+                  <MenuItem value={2}>2-4 years</MenuItem>
+                  <MenuItem value={4}>4-6 years</MenuItem>
+                  <MenuItem value={6}>6+ years</MenuItem>
+                </Select>
+              </FormControl>
             </div>
             <div className="upload-cv-main-div"></div>
+            <div className="d-flex justify-content-between mt-3">
+              <Button
+                className="delete-profile-btn"
+                color="error"
+                variant="contained"
+              >
+                <DeleteIcon className="mr-2 ml-n2" />
+                Delete
+              </Button>
+              <Button className="save-changes-btn" variant="contained">
+                <SaveIcon className="mr-2 ml-n2" />
+                Save changes
+              </Button>
+            </div>
           </div>
         </div>
       </Row>

@@ -515,10 +515,7 @@ export default function MyNavbar() {
                             className="ml-n3 mr-2"
                             spacing={2}
                           >
-                            <Avatar
-                              alt={user?.firstName}
-                              src="/static/images/avatar/1.jpg"
-                            />
+                            <Avatar alt={user?.firstName} src={user?.image} />
                           </Stack>
                           {user?.firstName}
                           <ChevronDownIcon
@@ -619,14 +616,6 @@ export default function MyNavbar() {
                       className="text-sm py-1 px-3 mr-n3 login-text font-medium text-gray-700 hover:text-gray-800"
                     >
                       Sign in
-                    </Link>
-
-                    <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                    <Link
-                      to="/register"
-                      className="text-sm py-1 px-3 ml-1 font-medium create-account text-gray-700 hover:text-gray-800"
-                    >
-                      Create account
                     </Link>
                   </div>
                 )}

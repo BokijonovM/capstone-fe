@@ -8,7 +8,7 @@ export default function MySearch() {
       disablePortal
       id="combo-box-demo"
       options={top100Films}
-      sx={{ width: 300 }}
+      sx={{ width: 200 }}
       renderInput={(params) => (
         <TextField
           className="search-text-field"

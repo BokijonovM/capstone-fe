@@ -1,6 +1,6 @@
 .profile-col-3 {
   width: 37vw !important;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   animation: 1s ease-out 0s 1 slideInLeft2Profile;
@@ -11,7 +11,7 @@
   width: 100%;
   margin: 20px;
   margin-left: 0;
-  height: 100vh;
+  /* height: 100vh; */
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
@@ -45,3 +45,6 @@
   border-radius: 5px;
   position: relative;
 }
+/* .delete-profile-btn {
+  background-color: red !important;
+} */
