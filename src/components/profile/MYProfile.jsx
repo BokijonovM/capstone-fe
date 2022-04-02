@@ -83,7 +83,6 @@ function MYProfile() {
           <div className="col-2-1st-div"></div>
         </div>
         <div className="profile-col-3">
-          {" "}
           <div className="col-3-1st-div"></div>
         </div>
       </Row>
