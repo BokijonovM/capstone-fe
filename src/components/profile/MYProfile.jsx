@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
 import Button from "@mui/material/Button";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
@@ -12,8 +12,11 @@ import { useNavigate } from "react-router-dom";
 import "./col2.css";
 import "./col3.css";
 import { useDispatch, useSelector } from "react-redux";
+import EditIcon from "@mui/icons-material/Edit";
+import CheckIcon from "@mui/icons-material/Check";
 
 function MYProfile() {
+  const [editFirstName, setEditFirstName] = useState(false);
   const dispatch = useDispatch();
   const userMe = useSelector((state) => state.userMe);
   const navigate = useNavigate();
@@ -83,7 +86,27 @@ function MYProfile() {
           </Button>
         </div>
         <div className="profile-col-2">
-          <div className="col-2-1st-div"></div>
+          <div className="p-3 col-2-1st-div">
+            <div className="d-flex pb-3  justify-content-between w-100 align-items-center">
+              <p className="mb-0">USER DETAILS</p>
+              <EditIcon
+                onClick={() => setEditFirstName(true)}
+                fontSize="small"
+              />
+            </div>
+
+            <div className="">
+              <Form.Group controlId="formBasicFirstName">
+                <Form.Control
+                  type="firstName"
+                  placeholder="Edit FirstName"
+                  className="my-n3 p-0 shadow-none border-0"
+                  style={{ fontSize: "20px", fontWeight: "600" }}
+                  defaultValue={userMe.firstName}
+                />
+              </Form.Group>
+            </div>
+          </div>
         </div>
         <div className="profile-col-3">
           <div className="col-3-1st-div"></div>

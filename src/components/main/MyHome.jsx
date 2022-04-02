@@ -23,7 +23,7 @@ function MyHome() {
         if (localStorage.getItem("MyToken")) {
           window.location.href = "/";
         }
-      }, 10);
+      }, 3000);
     }
   });
   return (

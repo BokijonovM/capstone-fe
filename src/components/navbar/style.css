@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Della+Respira&display=swap");
 
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .login-text {
   text-decoration: none !important;
 }
@@ -20,6 +29,7 @@
   position: fixed;
   z-index: 99 !important;
   width: 100vw;
+  animation: 1s ease-out 0s 1 slideInLeft;
 }
 .jobland-logo-text-part {
   margin-bottom: 1px;

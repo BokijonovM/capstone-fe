@@ -58,6 +58,7 @@ export default function MyLogin() {
         let data = await res.json();
         localStorage.setItem("MyToken", data.accessToken);
         window.location.href = "/";
+        // navigate("/home");
         console.log("Successfully logged in!");
       }
     } catch (error) {

@@ -84,6 +84,7 @@
   min-width: 100%;
   margin: 0;
   padding: 0;
+  animation: 1s ease-out 0s 1 slideInLeftProfile;
 }
 /* bottom */
 .row-2-bottom-bar {
@@ -136,5 +137,13 @@
   }
   .row-1-main-place {
     flex-direction: column !important;
+  }
+}
+@keyframes slideInLeftProfile {
+  0% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
