@@ -51,7 +51,7 @@
   flex-direction: column;
 }
 .show-comp-details-btn {
-  background-color: rgb(25, 239, 173);
+  background-color: rgb(25, 239, 173) !important;
   font-weight: 700;
 }
 .companies-main-card:hover .class-div-card-hover-text {
