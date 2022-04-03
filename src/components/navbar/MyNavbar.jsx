@@ -162,7 +162,7 @@ export default function MyNavbar() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const [isSearch, setIsSearch] = useState(false);
-
+  const userMe = useSelector((state) => state.userMe);
   useEffect(() => {
     if (dataJson) {
       setIsLoggedIn(true);
@@ -515,9 +515,12 @@ export default function MyNavbar() {
                             className="ml-n3 mr-2"
                             spacing={2}
                           >
-                            <Avatar alt={user?.firstName} src={user?.image} />
+                            <Avatar
+                              alt={userMe?.firstName}
+                              src={userMe?.image}
+                            />
                           </Stack>
-                          {user?.firstName}
+                          {userMe?.firstName}
                           <ChevronDownIcon
                             className="-mr-1 ml-2 h-5 w-5"
                             aria-hidden="true"

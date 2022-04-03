@@ -32,31 +32,22 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
 function MYProfile() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [linkedIn, setLinkedIn] = useState("");
-  const [gitHub, setGitHub] = useState("");
-  const [city, setCity] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [aboutMe, setAboutMe] = useState("");
-  const dispatch = useDispatch();
   const userMe = useSelector((state) => state.userMe);
-  const navigate = useNavigate();
-  const [experience, setExperience] = useState("");
+  const [firstName, setFirstName] = useState(userMe.firstName);
+  const [lastName, setLastName] = useState(userMe.lastName);
+  const [linkedIn, setLinkedIn] = useState(userMe.linkedin);
+  const [gitHub, setGitHub] = useState(userMe.github);
+  const [city, setCity] = useState(userMe.city);
+  const [phoneNumber, setPhoneNumber] = useState(userMe.phoneNumber);
+  const [aboutMe, setAboutMe] = useState(userMe.aboutMe);
+  const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+  const [experience, setExperience] = useState(userMe.myExperience);
+  const [selectedPic, setSelectedPic] = useState();
+  const myToken = localStorage.getItem("MyToken");
+  const dataJson = JSON.parse(JSON.stringify(myToken));
   // modal
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -65,6 +56,70 @@ function MYProfile() {
   const handleChangeExp = (event) => {
     setExperience(event.target.value);
   };
+
+  const handleChangePic = (e) => {
+    setSelectedPic(e.target.files[0]);
+  };
+
+  const editMyInfo = async () => {
+    // e.preventDefault();
+    const newPost = {
+      firstName: firstName,
+      lastName: lastName,
+      linkedin: linkedIn,
+      github: gitHub,
+      city: city,
+      phoneNumber: phoneNumber,
+      aboutMe: aboutMe,
+      myExperience: experience,
+    };
+    try {
+      let res = await fetch(`http://localhost:3001/users/me`, {
+        method: "PUT",
+        body: JSON.stringify(newPost),
+        headers: {
+          authorization: dataJson,
+          "Content-type": "application/json",
+        },
+      });
+      if (res.ok) {
+        let data = await res.json();
+        console.log("edited successfully", data);
+        dispatch(setUserInfoAction(data));
+      } else {
+        console.log("error edit me");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSavePic = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("image", selectedPic);
+    try {
+      let response = await fetch(
+        `${process.env.REACT_APP_MAIN_USER}/user/me/image`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      console.log("exp data", formData, selectedPic.name);
+      if (response.ok) {
+        let data = await response.json();
+        console.log("Image saved successfully", data);
+        // fetchExperiences();
+      } else {
+        console.log("Error on uploading image");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <Row className="row-1-main-place">
@@ -282,7 +337,8 @@ function MYProfile() {
               <Button
                 className="save-changes-btn"
                 variant="contained"
-                onClick={handleOpen}
+                // onClick={handleOpen}
+                onClick={() => editMyInfo()}
               >
                 <SaveIcon className="mr-2 ml-n2" />
                 Save changes
