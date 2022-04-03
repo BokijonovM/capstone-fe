@@ -127,6 +127,7 @@
   font-weight: 600 !important;
   width: 25%;
 }
+
 @media (max-width: 800px) {
   .row-2-bottom-bar {
     display: block;
@@ -137,4 +138,23 @@
   .row-1-main-place {
     flex-direction: column !important;
   }
+}
+.modal-profile-view-cv {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 90vh;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.modal-profile-view-cv::-webkit-scrollbar {
+  display: none;
 }
