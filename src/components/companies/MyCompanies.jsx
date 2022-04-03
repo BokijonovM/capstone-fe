@@ -1,5 +1,5 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Row, Card, Col } from "react-bootstrap";
 import Button from "@mui/material/Button";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
@@ -8,9 +8,38 @@ import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOu
 import BusinessIcon from "@mui/icons-material/Business";
 import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
 import { useNavigate } from "react-router-dom";
+import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
+import Avatar from "@mui/material/Avatar";
+import { setCompaniesAction } from "../../redux/action/index";
 
 function MyCompanies() {
+  const dispatch = useDispatch();
+  const userMe = useSelector((state) => state.userMe);
+  const allCompanies = useSelector((state) => state.companies);
+  const [companies, setCompanies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  const fetchCompanies = async () => {
+    try {
+      let res = await fetch("http://localhost:3001/companies");
+      if (res.ok) {
+        let data = await res.json();
+        console.log(data.total.companies);
+        setCompanies(data.total.companies);
+        setIsLoading(false);
+        dispatch(setCompaniesAction(data.total.companies));
+      } else {
+        console.log("fetch companies error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchCompanies();
+    console.log(allCompanies);
+  }, []);
   return (
     <div>
       <Row className="row-1-main-place">
@@ -18,11 +47,11 @@ function MyCompanies() {
           <div className="image-cont-div">
             <img
               className="user-image-profile"
-              src="https://images.unsplash.com/photo-1648330197078-c6742e61d227?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"
+              src={userMe.image}
               alt="profile"
             />
             <h6 className="mb-0 mt-2 welcome-text">Welcome</h6>
-            <h6 className="mb-0 username-h6-tag">username</h6>
+            <h6 className="mb-0 username-h6-tag">{userMe.firstName}</h6>
           </div>
           <Button
             onClick={() => navigate("/profile")}
@@ -76,8 +105,57 @@ function MyCompanies() {
             <span className="span-sidebar-for-all-profile">Sign out</span>
           </Button>
         </div>
-        <div className="profile-col-2">Col2</div>
-        <div className="profile-col-3">Col3</div>
+        <div className="profile-col-2-companies">
+          <div className="mx-4">
+            <Row xs={1} md={2} className="g-4 my-3">
+              {isLoading
+                ? ""
+                : companies.map((c) => {
+                    return (
+                      <Col key={c._id}>
+                        <Card className="my-2 companies-main-card">
+                          <Card.Img
+                            variant="top"
+                            className="card-comp-image-banner"
+                            src={c.banner}
+                          />
+                          <Card.Body>
+                            <div className="d-flex justify-content-between align-items-center">
+                              <Avatar
+                                className="company-cover-image"
+                                alt={c.name}
+                                src={c.cover}
+                              />
+
+                              <div>
+                                <h6
+                                  className="mb-0 text-muted"
+                                  style={{ fontSize: "10px" }}
+                                >
+                                  JOB OFFERS
+                                </h6>
+                                <h6 className="mb-0">{c.jobs.length}</h6>
+                              </div>
+                            </div>
+                          </Card.Body>
+                          <div className="class-div-card-hover-text">
+                            <div className="card-hover-child-div">
+                              <h5 className="mb-0 text-light">{c.name}</h5>
+                              <Button
+                                className="mt-3 text-light show-comp-details-btn"
+                                variant="contained"
+                              >
+                                SHOW DETAILS
+                              </Button>
+                            </div>
+                          </div>
+                        </Card>
+                      </Col>
+                    );
+                  })}
+            </Row>
+          </div>
+        </div>
       </Row>
       <Row className="row-2-bottom-bar">
         <Button

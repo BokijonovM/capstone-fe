@@ -4,12 +4,13 @@ import localStorage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import userReducer from "../reducer/myInfoReducer";
 import { encryptTransform } from "redux-persist-transform-encrypt";
-
+import companiesReducer from "../reducer/compReducer";
 const aComposeFunctionThatAlwaysWorks =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const initialState = {
   userMe: null,
+  companies: [],
 };
 const persistConfig = {
   key: "root",
@@ -23,6 +24,7 @@ const persistConfig = {
 
 const bigReducer = combineReducers({
   userMe: userReducer,
+  companies: companiesReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, bigReducer);
