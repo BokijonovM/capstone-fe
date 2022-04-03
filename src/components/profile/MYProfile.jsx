@@ -199,13 +199,15 @@ function MYProfile() {
             <div className="d-flex pb-3  justify-content-between w-100 align-items-center">
               <h6 className="mb-0">USER DETAILS</h6>
             </div>
-            <div
-              className="d-flex edit-image-main-div justify-content-center mb-4"
-              onClick={(e) => {
-                editable && setShowAddEditPic(true);
-              }}
-            >
-              <img className="edit-user-image" src={userMe.image} alt="mine" />
+            <div className="d-flex edit-image-main-div justify-content-center mb-4">
+              <img
+                className="edit-user-image"
+                src={userMe.image}
+                alt="mine"
+                onClick={(e) => {
+                  editable && setShowAddEditPic(true);
+                }}
+              />
               <CameraAltIcon fontSize="large" className="edit-icon-image" />
             </div>
 
@@ -488,14 +490,14 @@ function MYProfile() {
                   id="photo"
                   onChange={(e) => handleChange(e)}
                 />
-                {selectedFile && <p>Selected</p>}
               </div>
-              <button
-                className="bg-success text-white pointer round-border grey-border p-2 h-100"
+              <Button
+                variant="contained"
+                component="span"
                 onClick={(e) => handleUpload(e)}
               >
-                upload
-              </button>
+                Upload
+              </Button>
             </div>
           </Modal.Body>
         </Modal.Dialog>
