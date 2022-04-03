@@ -55,3 +55,8 @@
 .user-info-text-fields {
   text-decoration: none;
 }
+.edit-image-modal {
+  top: 30%;
+  right: 50%;
+  transform: translate(-50%, -505) !important;
+}

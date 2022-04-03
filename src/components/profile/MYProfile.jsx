@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
-import { Row, Col, Form } from "react-bootstrap";
+import { Row, Col, Form, Modal } from "react-bootstrap";
 import Button from "@mui/material/Button";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
@@ -30,7 +30,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import SaveIcon from "@mui/icons-material/Save";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 
 function MYProfile() {
   const userMe = useSelector((state) => state.userMe);
@@ -45,20 +44,20 @@ function MYProfile() {
 
   const navigate = useNavigate();
   const [experience, setExperience] = useState(userMe.myExperience);
-  const [selectedPic, setSelectedPic] = useState();
+  const [selectedFile, setSelectedFile] = useState(null);
   const myToken = localStorage.getItem("MyToken");
   const dataJson = JSON.parse(JSON.stringify(myToken));
   // modal
+  const [showAddEditPic, setShowAddEditPic] = useState(false);
+  const handleCloseAddEditPic = () => setShowAddEditPic(false);
+  const [editable, setEditable] = useState(true);
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleChangeExp = (event) => {
     setExperience(event.target.value);
-  };
-
-  const handleChangePic = (e) => {
-    setSelectedPic(e.target.files[0]);
   };
 
   const editMyInfo = async () => {
@@ -93,31 +92,41 @@ function MYProfile() {
       console.log(error);
     }
   };
-
-  const handleSavePic = async (e) => {
+  const handleUpload = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("image", selectedPic);
+    handleCloseAddEditPic();
+    formData.append("image", selectedFile);
+
+    const newImage = {
+      image: selectedFile,
+    };
+
     try {
-      let response = await fetch(
-        `${process.env.REACT_APP_MAIN_USER}/user/me/image`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-      console.log("exp data", formData, selectedPic.name);
+      let response = await fetch("http://localhost:3001/users/me/image", {
+        method: "POST",
+        body: formData,
+        headers: {
+          authorization: dataJson,
+        },
+      });
+
       if (response.ok) {
         let data = await response.json();
-        console.log("Image saved successfully", data);
-        // fetchExperiences();
+        console.log("successfully Uploaded", data);
+        dispatch(setUserInfoAction(data));
+        // fetchProfile();
       } else {
-        console.log("Error on uploading image");
+        console.log("error on uploading");
       }
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleChange = (e) => {
+    setSelectedFile(e.target.files[0]);
   };
 
   return (
@@ -190,10 +199,16 @@ function MYProfile() {
             <div className="d-flex pb-3  justify-content-between w-100 align-items-center">
               <h6 className="mb-0">USER DETAILS</h6>
             </div>
-            <div className="d-flex edit-image-main-div justify-content-center mb-4">
+            <div
+              className="d-flex edit-image-main-div justify-content-center mb-4"
+              onClick={(e) => {
+                editable && setShowAddEditPic(true);
+              }}
+            >
               <img className="edit-user-image" src={userMe.image} alt="mine" />
               <CameraAltIcon fontSize="large" className="edit-icon-image" />
             </div>
+
             <div className="user-info-text-fields-main-div">
               <div className="d-flex align-items-center justify-content-between">
                 <TextField
@@ -314,13 +329,14 @@ function MYProfile() {
                   id="demo-simple-select"
                   value={experience}
                   label="Experience"
+                  defaultValue={userMe.myExperience}
                   size="small"
                   onChange={handleChangeExp}
                 >
-                  <MenuItem value={0}>0-2 years</MenuItem>
-                  <MenuItem value={2}>2-4 years</MenuItem>
-                  <MenuItem value={4}>4-6 years</MenuItem>
-                  <MenuItem value={6}>6+ years</MenuItem>
+                  <MenuItem value={"0-2"}>0-2 years</MenuItem>
+                  <MenuItem value={"2-4"}>2-4 years</MenuItem>
+                  <MenuItem value={"4-6"}>4-6 years</MenuItem>
+                  <MenuItem value={"6+"}>6+ years</MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -456,6 +472,33 @@ function MYProfile() {
             <h5>lorem45</h5>
           </Typography>
         </Box>
+      </Modal>
+      <Modal
+        show={showAddEditPic}
+        onHide={handleCloseAddEditPic}
+        animation={true}
+        className="w-100 edit-image-modal"
+      >
+        <Modal.Dialog className="w-100 border-0 px-3">
+          <Modal.Body>
+            <div className="d-flex justify-content-between justify-content-center  align-items-center">
+              <div>
+                <input
+                  type="file"
+                  id="photo"
+                  onChange={(e) => handleChange(e)}
+                />
+                {selectedFile && <p>Selected</p>}
+              </div>
+              <button
+                className="bg-success text-white pointer round-border grey-border p-2 h-100"
+                onClick={(e) => handleUpload(e)}
+              >
+                upload
+              </button>
+            </div>
+          </Modal.Body>
+        </Modal.Dialog>
       </Modal>
     </div>
   );
