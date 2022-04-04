@@ -69,7 +69,7 @@ export default function MyLogin() {
   return (
     <div>
       <ThemeProvider className="main-theme-login" theme={theme}>
-        <Grid container component="main" sx={{ height: "82vh", zIndex: "-1" }}>
+        <Grid container component="main" sx={{ height: "81vh", zIndex: "-1" }}>
           <CssBaseline />
           <Grid
             item

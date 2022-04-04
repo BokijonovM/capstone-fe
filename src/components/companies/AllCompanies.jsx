@@ -12,6 +12,7 @@ import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
 import { setCompaniesAction } from "../../redux/action/index";
+import MyLoader from "../MyLoader";
 
 function AllCompanies() {
   const dispatch = useDispatch();
@@ -115,6 +116,7 @@ function AllCompanies() {
                   borderColor: "rgb(86, 77, 229)",
                   color: "rgb(86, 77, 229)",
                 }}
+                onClick={() => navigate("/add-companies")}
               >
                 ADD COMPANY
               </Button>
@@ -128,51 +130,54 @@ function AllCompanies() {
               </Button>
             </Row>
             <Row xs={1} md={2} className="g-4 my-3">
-              {isLoading
-                ? ""
-                : companies.map((c) => {
-                    return (
-                      <Col key={c._id}>
-                        <Card className="my-2 companies-main-card">
-                          <Card.Img
-                            variant="top"
-                            className="card-comp-image-banner"
-                            src={c.banner}
-                          />
-                          <Card.Body>
-                            <div className="d-flex justify-content-between align-items-center">
-                              <Avatar
-                                className="company-cover-image"
-                                alt={c.name}
-                                src={c.cover}
-                              />
+              {isLoading ? (
+                <MyLoader />
+              ) : (
+                companies.map((c) => {
+                  return (
+                    <Col key={c._id}>
+                      <Card className="my-2 companies-main-card">
+                        <Card.Img
+                          variant="top"
+                          className="card-comp-image-banner"
+                          src={c.banner}
+                        />
+                        <Card.Body>
+                          <div className="d-flex justify-content-between align-items-center">
+                            <Avatar
+                              className="company-cover-image"
+                              alt={c.name}
+                              src={c.cover}
+                            />
 
-                              <div>
-                                <h6
-                                  className="mb-0 text-muted"
-                                  style={{ fontSize: "10px" }}
-                                >
-                                  JOB OFFERS
-                                </h6>
-                                <h6 className="mb-0">{c.jobs.length}</h6>
-                              </div>
-                            </div>
-                          </Card.Body>
-                          <div className="class-div-card-hover-text">
-                            <div className="card-hover-child-div">
-                              <h5 className="mb-0 text-light">{c.name}</h5>
-                              <Button
-                                className="mt-3 text-light show-comp-details-btn"
-                                variant="contained"
+                            <div>
+                              <h6
+                                className="mb-0 text-muted"
+                                style={{ fontSize: "10px" }}
                               >
-                                SHOW DETAILS
-                              </Button>
+                                JOB OFFERS
+                              </h6>
+                              <h6 className="mb-0">0</h6>
                             </div>
                           </div>
-                        </Card>
-                      </Col>
-                    );
-                  })}
+                        </Card.Body>
+                        <div className="class-div-card-hover-text">
+                          <div className="card-hover-child-div">
+                            <h5 className="mb-0 text-light">{c.name}</h5>
+                            <Button
+                              className="mt-3 text-light show-comp-details-btn"
+                              variant="contained"
+                              onClick={() => navigate(`/companies/${c._id}`)}
+                            >
+                              SHOW DETAILS
+                            </Button>
+                          </div>
+                        </div>
+                      </Card>
+                    </Col>
+                  );
+                })
+              )}
             </Row>
           </div>
         </div>

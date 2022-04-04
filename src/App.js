@@ -13,6 +13,8 @@ import MyJobs from "./components/myjobs/MyJobs";
 import AllCompanies from "./components/companies/AllCompanies";
 import MyMessages from "./components/messages/MyMessages";
 import MyCompanies from "./components/companies/MyCompanies";
+import AddCompany from "./components/companies/AddCompany";
+import SingleCompany from "./components/companies/SingleCompany";
 
 function App() {
   return (
@@ -29,7 +31,9 @@ function App() {
             <Route path="/settings" element={<MySettings />} />
             <Route path="/my-jobs" element={<MyJobs />} />
             <Route path="/companies" element={<AllCompanies />} />
+            <Route path="/companies/:id" element={<SingleCompany />} />
             <Route path="/my-companies" element={<MyCompanies />} />
+            <Route path="/add-companies" element={<AddCompany />} />
             <Route path="/messages" element={<MyMessages />} />
           </Routes>
         </div>
