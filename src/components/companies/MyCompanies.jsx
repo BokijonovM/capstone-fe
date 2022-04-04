@@ -63,7 +63,7 @@ function MyCompanies() {
                           >
                             JOB OFFERS
                           </h6>
-                          <h6 className="mb-0">{c.jobs.length}</h6>
+                          <h6 className="mb-0">0</h6>
                         </div>
                       </div>
                     </Card.Body>
