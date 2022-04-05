@@ -29,7 +29,6 @@ function Posted() {
       if (res.ok) {
         let data = await res.json();
         setMyJobs(data);
-        console.log(data);
         setIsLoading(false);
       } else {
         console.log("fetch my jobs error");
@@ -53,7 +52,7 @@ function Posted() {
       ) : (
         myJobs.map((job) => {
           return (
-            <div className="myJobs-posted-2nd-main-div px-3 my-3">
+            <div className="myJobs-posted-2nd-main-div px-3 my-3" key={job._id}>
               <Avatar
                 className="company-cover-image"
                 alt={job.title}
