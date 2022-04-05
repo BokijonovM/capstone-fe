@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
 import { setCompaniesAction } from "../../redux/action/index";
-import MyLoader from "../MyLoader";
+import MyLoader from "../loader/MyLoader";
 import "./style.css";
 import Applied from "./Applied";
 import Posted from "./Posted";

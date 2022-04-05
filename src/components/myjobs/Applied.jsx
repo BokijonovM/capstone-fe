@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
-import MyLoader from "../MyLoader";
+import MyLoader from "../loader/MyLoader";
 import BusinessIcon from "@mui/icons-material/Business";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Button from "@mui/material/Button";
@@ -42,7 +42,7 @@ function Applied() {
   }, []);
   return (
     <div className="w-100 m-3">
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between px-3">
         <h6>Applied jobs</h6>
         <h6>{myAJobs.length}</h6>
       </div>
@@ -73,10 +73,10 @@ function Applied() {
                 </h6>
               </div>
               <div className="ml-auto">
-                <h6 className="text-muted" style={{ fontSize: "14px" }}>
-                  Applicants
+                <h6 className="text-muted mb-0" style={{ fontSize: "14px" }}>
+                  Salary
                 </h6>
-                <h6 style={{ fontSize: "12px" }}>{job.applicants.length}</h6>
+                <h6 style={{ fontSize: "12px" }}>${job.salary}</h6>
               </div>
               <div className="jobs-hover-my-jobs-posted">
                 <div className="card-hover-child-div">

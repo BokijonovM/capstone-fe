@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
-import MyLoader from "../MyLoader";
+import MyLoader from "../loader/MyLoader";
 import BusinessIcon from "@mui/icons-material/Business";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Button from "@mui/material/Button";
@@ -43,7 +43,7 @@ function Posted() {
 
   return (
     <div className="w-100 m-3">
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between px-3">
         <h6>Posted jobs</h6>
         <h6>{myJobs.length}</h6>
       </div>
@@ -84,7 +84,7 @@ function Posted() {
                   <Button
                     className="mt-3 text-light show-comp-details-btn"
                     variant="contained"
-                    onClick={() => navigate(`/jobs/${job._id}`)}
+                    onClick={() => navigate(`/my-jobs/${job._id}`)}
                   >
                     SHOW DETAILS
                   </Button>
