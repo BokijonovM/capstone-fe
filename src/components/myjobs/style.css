@@ -46,7 +46,7 @@
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  /* display: none; */
+  display: none;
   cursor: pointer;
   transition: all 0.9s ease !important;
   background-color: rgb(86, 77, 229, 0.8);

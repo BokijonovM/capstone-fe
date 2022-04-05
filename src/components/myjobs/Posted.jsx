@@ -4,8 +4,11 @@ import Avatar from "@mui/material/Avatar";
 import MyLoader from "../MyLoader";
 import BusinessIcon from "@mui/icons-material/Business";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 function Posted() {
+  const navigate = useNavigate();
   const [myJobs, setMyJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
@@ -76,7 +79,18 @@ function Posted() {
                 </h6>
                 <h6 style={{ fontSize: "12px" }}>{job.applicants.length}</h6>
               </div>
-              <div className="jobs-hover-my-jobs-posted"></div>
+              <div className="jobs-hover-my-jobs-posted">
+                <div className="card-hover-child-div">
+                  <h5 className="mb-0 text-light">{job.title}</h5>
+                  <Button
+                    className="mt-3 text-light show-comp-details-btn"
+                    variant="contained"
+                    onClick={() => navigate(`/jobs/${job._id}`)}
+                  >
+                    SHOW DETAILS
+                  </Button>
+                </div>
+              </div>
             </div>
           );
         })
