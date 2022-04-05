@@ -1,0 +1,57 @@
+.myJobs-applied-2nd-main-div {
+  width: 100%;
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 5px;
+}
+
+.myJobs-posted-2nd-main-div {
+  width: 100%;
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: relative;
+}
+.job-title-posted {
+  font-size: 14px;
+}
+.job-posted-name-location {
+  font-size: 10px;
+  color: grey;
+  display: flex;
+  align-items: center;
+}
+.job-posted-name-location span {
+  display: flex;
+  align-items: center;
+}
+@keyframes cardAnimation {
+  0% {
+    opacity: 0;
+    display: none;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    display: block;
+    transform: translateY(0);
+  }
+}
+.jobs-hover-my-jobs-posted {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  /* display: none; */
+  cursor: pointer;
+  transition: all 0.9s ease !important;
+  background-color: rgb(86, 77, 229, 0.8);
+  animation: 0.3s ease-out 0s 1 cardAnimation;
+}
+.myJobs-posted-2nd-main-div:hover .jobs-hover-my-jobs-posted {
+  display: block;
+}

@@ -8,8 +8,17 @@ import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOu
 import BusinessIcon from "@mui/icons-material/Business";
 import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import Avatar from "@mui/material/Avatar";
+import { setCompaniesAction } from "../../redux/action/index";
+import MyLoader from "../MyLoader";
+import "./style.css";
+import Applied from "./Applied";
+import Posted from "./Posted";
 
 function MyJobs() {
+  const dispatch = useDispatch();
+  const userMe = useSelector((state) => state.userMe);
   const navigate = useNavigate();
   return (
     <div>
@@ -18,11 +27,11 @@ function MyJobs() {
           <div className="image-cont-div">
             <img
               className="user-image-profile"
-              src="https://images.unsplash.com/photo-1648330197078-c6742e61d227?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"
+              src={userMe.image}
               alt="profile"
             />
             <h6 className="mb-0 mt-2 welcome-text">Welcome</h6>
-            <h6 className="mb-0 username-h6-tag">username</h6>
+            <h6 className="mb-0 username-h6-tag">{userMe.firstName}</h6>
           </div>
           <Button
             onClick={() => navigate("/profile")}
@@ -76,8 +85,12 @@ function MyJobs() {
             <span className="span-sidebar-for-all-profile">Sign out</span>
           </Button>
         </div>
-        <div className="profile-col-2">Col2</div>
-        <div className="profile-col-3">Col3</div>
+        <div className="profile-col-2">
+          <Posted />
+        </div>
+        <div className="profile-col-3">
+          <Applied />
+        </div>
       </Row>
       <Row className="row-2-bottom-bar">
         <Button
