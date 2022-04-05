@@ -12,7 +12,8 @@ import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
 import { setCompaniesAction } from "../../redux/action/index";
-import MyLoader from "../MyLoader";
+import MyLoader from "../loader/MyLoader";
+import JobLength from "./JobLength";
 
 function AllCompanies() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function AllCompanies() {
   const navigate = useNavigate();
   const fetchCompanies = async () => {
     try {
-      let res = await fetch("http://localhost:3001/companies");
+      let res = await fetch(`${process.env.REACT_APP_API_MAIN_URL}/companies`);
       if (res.ok) {
         let data = await res.json();
         console.log(data.total.companies);
@@ -37,9 +38,9 @@ function AllCompanies() {
       console.log(error);
     }
   };
+
   useEffect(() => {
     fetchCompanies();
-    console.log(allCompanies);
   }, []);
   return (
     <div>
@@ -157,7 +158,9 @@ function AllCompanies() {
                               >
                                 JOB OFFERS
                               </h6>
-                              <h6 className="mb-0">0</h6>
+                              <h6 className="mb-0">
+                                <JobLength name={c.name} />
+                              </h6>
                             </div>
                           </div>
                         </Card.Body>
