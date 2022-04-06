@@ -1,0 +1,9 @@
+.item-2-main-div {
+  width: 96vw;
+  /* display: flex;
+  justify-content: center; */
+}
+.com-jobs-main-card {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

@@ -1,7 +1,7 @@
 .profile-col-2-companies {
   height: 100%;
   width: 77vw;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
 }
 @media (max-width: 880px) {

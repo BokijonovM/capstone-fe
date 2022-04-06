@@ -6,6 +6,7 @@ import BusinessIcon from "@mui/icons-material/Business";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import JobImage from "./JobImage";
 
 function Applied() {
   const userMe = useSelector((state) => state.userMe);
@@ -53,12 +54,7 @@ function Applied() {
         myAJobs.map((job) => {
           return (
             <div className="myJobs-posted-2nd-main-div px-3 my-3" key={job._id}>
-              <Avatar
-                className="company-cover-image"
-                alt={job.title}
-                src="/static/images/avatar/1.jpg"
-                // src={job.cover}
-              />
+              <JobImage job={job.companyName} />
               <div className="ml-3">
                 <h6 className="job-title-posted ">{job.title}</h6>
                 <h6 className="job-posted-name-location mb-0">

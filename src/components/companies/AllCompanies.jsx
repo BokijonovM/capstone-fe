@@ -137,7 +137,7 @@ function AllCompanies() {
                 companies.map((c) => {
                   return (
                     <Col key={c._id}>
-                      <Card className="my-2 companies-main-card">
+                      <Card className=" my-2 companies-main-card">
                         <Card.Img
                           variant="top"
                           className="card-comp-image-banner"
