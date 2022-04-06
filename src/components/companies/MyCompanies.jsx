@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Card } from "react-bootstrap";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
+import JobLength from "./JobLength";
 
 function MyCompanies() {
   const [myCompanies, setMyCompanies] = useState([]);
@@ -63,7 +64,8 @@ function MyCompanies() {
                           >
                             JOB OFFERS
                           </h6>
-                          <h6 className="mb-0">0</h6>
+
+                          <JobLength name={c.name} />
                         </div>
                       </div>
                     </Card.Body>
