@@ -25,6 +25,12 @@
   display: flex;
   align-items: center;
 }
+.job-posted-name-location-1 {
+  font-size: 12px;
+  color: grey;
+  display: flex;
+  align-items: center;
+}
 .job-posted-name-location span {
   display: flex;
   align-items: center;
@@ -54,4 +60,33 @@
 }
 .myJobs-posted-2nd-main-div:hover .jobs-hover-my-jobs-posted {
   display: block;
+}
+/* all jobs */
+.all-jobs-main-div-2nd-page {
+  display: flex;
+  width: 95vw;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+.all-jobs-main-div-2nd-page:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+.all-jobs-tech-stack-div {
+  border-radius: 5px;
+  border: 0.1px solid grey !important;
+}
+.search-fields-main-div-1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.search-fields-main-div {
+  display: flex;
+  justify-content: center;
+  width: 75vw;
+  margin-bottom: 20px;
 }

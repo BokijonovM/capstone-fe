@@ -60,3 +60,26 @@
     stroke-dashoffset: 0;
   }
 }
+.earth-image-rotate-needed {
+  height: 70vh;
+  margin-top: -50px;
+  transform: rotate(20deg);
+  /* animation: rotation infinite 9999s linear; */
+}
+
+@keyframes rotation {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.main-page-first-page-main-div {
+  height: 91vh;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
