@@ -76,7 +76,8 @@
   cursor: pointer;
 }
 .all-jobs-tech-stack-div {
-  border-radius: 5px;
+  border-radius: 32px;
+  font-size: 10px;
   border: 0.1px solid grey !important;
 }
 .search-fields-main-div-1 {
@@ -89,4 +90,9 @@
   justify-content: center;
   width: 75vw;
   margin-bottom: 20px;
+}
+@media (max-width: 700px) {
+  .all-jobs-tech-stack {
+    display: none !important;
+  }
 }

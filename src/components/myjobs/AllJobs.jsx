@@ -6,6 +6,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WorkIcon from "@mui/icons-material/Work";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
+import moment from "moment";
 
 function AllJobs() {
   const navigate = useNavigate();
@@ -64,54 +65,114 @@ function AllJobs() {
       {isLoading ? (
         <MyLoader />
       ) : (
-        allJobs.map((job) => {
-          return (
-            <div
-              className="all-jobs-main-div-2nd-page my-2 p-4"
-              key={job._id}
-              onClick={() => navigate(`/jobs/${job._id}`)}
-            >
-              <div className="d-flex align-items-center">
-                <JobImage job={job.companyName} />
-                <div className="ml-3">
-                  <h5 className="mb-1">{job.title}</h5>
+        allJobs
+          .filter((value) => {
+            if (byTitle === "") {
+              return value;
+            } else if (
+              value.title.toLowerCase().includes(byTitle.toLowerCase())
+            ) {
+              return value;
+            }
+          })
+          .filter((value) => {
+            if (byLocation === "") {
+              return value;
+            } else if (
+              value.location.toLowerCase().includes(byLocation.toLowerCase())
+            ) {
+              return value;
+            }
+          })
+          .filter((value) => {
+            if (byCompany === "") {
+              return value;
+            } else if (
+              value.companyName.toLowerCase().includes(byCompany.toLowerCase())
+            ) {
+              return value;
+            }
+          })
+          .map((job) => {
+            return (
+              <div
+                className="all-jobs-main-div-2nd-page my-2 p-4"
+                key={job._id}
+                onClick={() => navigate(`/jobs/${job._id}`)}
+              >
+                <div className="d-flex align-items-center">
+                  <JobImage job={job.companyName} />
+                  <div className="ml-3">
+                    <h5 className="mb-1">{job.title}</h5>
 
-                  <h6 className="job-posted-name-location-1 mb-0">
-                    <span>
-                      <BusinessIcon className="mr-1" fontSize="12px" />{" "}
-                      {job.companyName}
-                    </span>
-                    <span className="ml-3">
-                      <LocationOnIcon className="mr-1" fontSize="12px" />{" "}
-                      {job.location}
-                    </span>
-                    <span className="ml-3">
-                      <WorkIcon className="mr-1" fontSize="12px" /> {job.type}
-                    </span>
+                    <h6 className="job-posted-name-location-1 mb-0">
+                      <span>
+                        <BusinessIcon className="mr-1" fontSize="12px" />{" "}
+                        {job.companyName}
+                      </span>
+                      <span className="ml-3">
+                        <LocationOnIcon className="mr-1" fontSize="12px" />{" "}
+                        {job.location}
+                      </span>
+                      <span className="ml-3">
+                        <WorkIcon className="mr-1" fontSize="12px" /> {job.type}
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+                <div className="all-jobs-tech-stack d-flex flex-column justify-content-center align-items-center">
+                  <div className="d-flex">
+                    {job.techStack.slice(0, 3).map((t) => {
+                      return (
+                        <div
+                          className="all-jobs-tech-stack-div m-1 py-1 px-2"
+                          key={t._id}
+                        >
+                          {t.skill}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="d-flex">
+                    {job.techStack.slice(3, 6).map((t) => {
+                      return (
+                        <div
+                          className="all-jobs-tech-stack-div m-1 py-1 px-2"
+                          key={t._id}
+                        >
+                          {t.skill}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="d-flex">
+                    {job.techStack.slice(6, 9).map((t) => {
+                      return (
+                        <div
+                          className="all-jobs-tech-stack-div m-1 py-1 px-2"
+                          key={t._id}
+                        >
+                          {t.skill}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="">
+                  <h6 className="" style={{ fontSize: "12px" }}>
+                    ${job.salary}
+                  </h6>
+                  <h6 className="mb-0">
+                    {moment
+                      .utc(job.createdAt)
+                      .local()
+                      .startOf("seconds")
+                      .fromNow()}
                   </h6>
                 </div>
               </div>
-              <div className="all-jobs-tech-stack d-flex">
-                {job.techStack.map((t) => {
-                  return (
-                    <div
-                      className="all-jobs-tech-stack-div m-1 py-1 px-2"
-                      key={t._id}
-                    >
-                      {t.skill}
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="">
-                <h6 className="mb-0">Salary</h6>
-                <h6 className="" style={{ fontSize: "12px" }}>
-                  ${job.salary}
-                </h6>
-              </div>
-            </div>
-          );
-        })
+            );
+          })
       )}
     </div>
   );
