@@ -64,7 +64,7 @@
 /* all jobs */
 .all-jobs-main-div-2nd-page {
   display: flex;
-  width: 95vw;
+  width: 100%;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   align-items: center;
@@ -83,12 +83,12 @@
 .search-fields-main-div-1 {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  width: 100%;
 }
 .search-fields-main-div {
   display: flex;
-  justify-content: center;
-  width: 75vw;
+  justify-content: flex-start;
   margin-bottom: 20px;
 }
 @media (max-width: 700px) {

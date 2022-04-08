@@ -37,31 +37,16 @@ function AllJobs() {
   }, []);
   return (
     <div className="d-flex justify-content-center flex-column align-items-center">
-      <div className="search-fields-main-div">
-        <div className="search-fields-main-div-1">
-          <TextField
-            id="outlined-basic"
-            label="Title"
-            variant="outlined"
-            size="small"
-            onChange={(e) => setByTitle(e.target.value)}
-          />
-          <TextField
-            id="outlined-basic"
-            label="Location"
-            variant="outlined"
-            size="small"
-            onChange={(e) => setByLocation(e.target.value)}
-          />
-          <TextField
-            id="outlined-basic"
-            label="Company"
-            variant="outlined"
-            size="small"
-            onChange={(e) => setByCompany(e.target.value)}
-          />
-        </div>
+      <div className="search-fields-main-div-1">
+        <TextField
+          id="outlined-basic"
+          label="Title"
+          variant="outlined"
+          size="small"
+          onChange={(e) => setByTitle(e.target.value)}
+        />
       </div>
+
       {isLoading ? (
         <MyLoader />
       ) : (
@@ -71,24 +56,6 @@ function AllJobs() {
               return value;
             } else if (
               value.title.toLowerCase().includes(byTitle.toLowerCase())
-            ) {
-              return value;
-            }
-          })
-          .filter((value) => {
-            if (byLocation === "") {
-              return value;
-            } else if (
-              value.location.toLowerCase().includes(byLocation.toLowerCase())
-            ) {
-              return value;
-            }
-          })
-          .filter((value) => {
-            if (byCompany === "") {
-              return value;
-            } else if (
-              value.companyName.toLowerCase().includes(byCompany.toLowerCase())
             ) {
               return value;
             }

@@ -83,3 +83,12 @@
   justify-content: space-between;
   align-items: center;
 }
+.first-page-some-text-cont {
+  max-width: 50vw;
+  font-stretch: condensed;
+}
+@media (max-width: 800px) {
+  .first-page-some-text-cont {
+    max-width: 80vw;
+  }
+}
