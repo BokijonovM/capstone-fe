@@ -10,9 +10,9 @@ export default function MySearch() {
       let res = await fetch(`${process.env.REACT_APP_API_MAIN_URL}/jobs`);
       if (res.ok) {
         let data = await res.json();
-        data.map((j) => {
-          setAllJobs(j.title);
-        });
+        setAllJobs(data);
+        // data.map((j) => {
+        // });
 
         console.log("setAllJobs", data);
       } else {

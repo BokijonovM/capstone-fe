@@ -10,11 +10,6 @@ function MyMain() {
         <div className="first-page-some-text-cont mt-n5">
           <h3>Welcome</h3>
         </div>
-        <img
-          className="earth-image-rotate-needed"
-          src={earthImage}
-          alt="earth"
-        />
       </div>
       <AllJobs />
     </div>

@@ -4,7 +4,12 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 function Search({ allJobs }) {
   console.log("hhh", allJobs);
-  const top100Films = [{ label: "hi", year: 1994 }];
+  const data = allJobs.map(getFullName);
+  console.log("ajkdakna", data);
+  function getFullName(item) {
+    return item.title;
+  }
+  const top100Films = [{ label: data, year: 1994 }];
   return (
     <Autocomplete
       disablePortal
