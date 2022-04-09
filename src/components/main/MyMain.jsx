@@ -11,11 +11,17 @@ function MyMain() {
   return (
     <div className="may-main mt-3">
       <Row className="m-0 p-0" sm={1} md={2}>
-        <Col md={7}>
+        <Col className="" md={7}>
           <AllJobs setIsMap={setIsMap} />
         </Col>
-        <Col className="p-0 d-flex justify-content-center" md={5}>
-          {isMap ? <MyMap /> : <AllComp />}
+        <Col className="" md={5}>
+          {isMap ? (
+            <div className="my-map-main-div-1 w-100 mr-3">
+              <MyMap />
+            </div>
+          ) : (
+            <AllComp />
+          )}
         </Col>
       </Row>
     </div>

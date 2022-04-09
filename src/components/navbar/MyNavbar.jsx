@@ -629,7 +629,7 @@ export default function MyNavbar() {
                   <div className="ml-2 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                     <Link
                       to="/login"
-                      className="text-sm py-1 px-3 mr-n3 login-text font-medium text-gray-700 hover:text-gray-800"
+                      className="text-sm py-1 px-3  login-text font-medium text-gray-700 hover:text-gray-800"
                     >
                       Sign in
                     </Link>
