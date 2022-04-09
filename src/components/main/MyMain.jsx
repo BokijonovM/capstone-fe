@@ -7,7 +7,7 @@ import AllComp from "../companies/AllComp";
 import MyMap from "../myMap/MyMap";
 
 function MyMain() {
-  const [isMap, setIsMap] = useState(true);
+  const [isMap, setIsMap] = useState(false);
   return (
     <div className="may-main mt-3">
       <Row className="m-0 p-0" sm={1} md={2}>
