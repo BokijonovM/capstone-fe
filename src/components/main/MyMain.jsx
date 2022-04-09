@@ -12,7 +12,7 @@ function MyMain() {
     <div className="may-main mt-3">
       <Row className="m-0 p-0" sm={1} md={2}>
         <Col md={7}>
-          <AllJobs />
+          <AllJobs setIsMap={setIsMap} />
         </Col>
         <Col className="p-0 d-flex justify-content-center" md={5}>
           {isMap ? <MyMap /> : <AllComp />}

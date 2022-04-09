@@ -83,7 +83,7 @@
 .search-fields-main-div-1 {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
 }
 .search-fields-main-div {
@@ -106,3 +106,7 @@
   justify-content: center;
   align-items: center;
 } */
+.css-1x4vipr-MuiButtonBase-root-MuiToggleButton-root.Mui-selected {
+  background-color: rgb(86, 77, 229) !important;
+  color: white !important;
+}

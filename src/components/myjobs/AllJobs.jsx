@@ -7,8 +7,16 @@ import WorkIcon from "@mui/icons-material/Work";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import moment from "moment";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import MapIcon from "@mui/icons-material/Map";
 
-function AllJobs() {
+function AllJobs({ setIsMap }) {
+  const [alignment, setAlignment] = React.useState("left");
+
+  const handleAlignment = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
   const navigate = useNavigate();
   const [allJobs, setAllJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +52,28 @@ function AllJobs() {
           size="small"
           onChange={(e) => setByTitle(e.target.value)}
         />
+        <ToggleButtonGroup
+          value={alignment}
+          exclusive
+          onChange={handleAlignment}
+          aria-label="text alignment"
+          size="small"
+        >
+          <ToggleButton
+            value="left"
+            aria-label="left aligned"
+            onClick={() => setIsMap(false)}
+          >
+            <BusinessIcon />
+          </ToggleButton>
+          <ToggleButton
+            value="center"
+            aria-label="centered"
+            onClick={() => setIsMap(true)}
+          >
+            <MapIcon />
+          </ToggleButton>
+        </ToggleButtonGroup>
       </div>
 
       {isLoading ? (

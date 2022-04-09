@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Card, Col } from "react-bootstrap";
 import Button from "@mui/material/Button";
-import MyLoader from "../loader/MyLoader";
+import OtherLoader from "../loader/OtherLoader";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
@@ -48,7 +48,7 @@ function AllComp() {
         />
       </div>
       {isLoading ? (
-        <MyLoader />
+        <OtherLoader />
       ) : (
         companies
           .filter((value) => {

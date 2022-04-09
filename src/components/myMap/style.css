@@ -3,7 +3,7 @@
   z-index: 0;
   right: 5px;
   top: 0px;
-  width: 100%;
+  width: 99%;
   height: 98.5%;
   touch-action: none;
   user-select: none;
@@ -14,11 +14,14 @@
 }
 
 .my-map-main-div-1 {
-  top: 85.2px;
+  top: 80.2px;
   height: 594.8px;
   flex-direction: row;
   margin-top: -64px;
   position: sticky;
+  justify-content: center !important;
+  align-items: center;
+  align-content: center;
 }
 @media (max-width: 768px) {
   .my-map-main-div {
