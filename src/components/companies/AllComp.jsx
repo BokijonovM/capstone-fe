@@ -38,7 +38,7 @@ function AllComp() {
   }, []);
   return (
     <div>
-      <div className="search-fields-main-div-1 ml-3">
+      <div className="search-fields-main-div-1 ml-0">
         <TextField
           id="outlined-basic"
           label="Company"
@@ -61,7 +61,7 @@ function AllComp() {
             })
             .map((c) => {
               return (
-                <Col key={c._id}>
+                <Col className="p-0" key={c._id}>
                   <Card className=" my-2 companies-main-card">
                     <Card.Img
                       variant="top"

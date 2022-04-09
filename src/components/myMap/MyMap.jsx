@@ -1,53 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-
-const containerStyle = {
-  width: "100%",
-  height: "100%",
-  borderRadius: "5px",
-};
-
-const center = {
-  lat: 52.233334,
-  lng: 21.017532,
-};
+import { MapContainer, TileLayer, Marker, ZoomControl } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 function MyMap() {
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "AIzaSyCIcRarK0J3xgsQYLWVSBuNrI-huAMgSWs",
-  });
-
-  const [map, setMap] = React.useState(null);
-
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map);
-  }, []);
-
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null);
-  }, []);
+  const [isLoaded, setIsLoaded] = useState(false);
   return (
-    <div className="w-100 my-map-main-div-1">
-      <div className="my-map-main-div mb-5">
-        {isLoaded ? (
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={10}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
-          >
-            {/* Child components, such as markers, info windows, etc. */}
-          </GoogleMap>
-        ) : (
-          ""
-        )}
-      </div>
-    </div>
+    <MapContainer
+      center={[52.233334, 21.016666]}
+      zoom={12}
+      scrollWheelZoom={true}
+      zoomControl={false}
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <ZoomControl position="topright" />
+    </MapContainer>
   );
 }
 
