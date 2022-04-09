@@ -36,6 +36,16 @@ function AllJobs() {
   }, []);
   return (
     <div className="d-flex justify-content-center flex-column align-items-center">
+      <div className="search-fields-main-div-1">
+        <TextField
+          id="outlined-basic"
+          label="Title"
+          variant="outlined"
+          size="small"
+          onChange={(e) => setByTitle(e.target.value)}
+        />
+      </div>
+
       {isLoading ? (
         <MyLoader />
       ) : (
@@ -135,12 +145,3 @@ function AllJobs() {
 }
 
 export default AllJobs;
-// <div className="search-fields-main-div-1">
-//   <TextField
-//     id="outlined-basic"
-//     label="Title"
-//     variant="outlined"
-//     size="small"
-//     onChange={(e) => setByTitle(e.target.value)}
-//   />
-// </div>;

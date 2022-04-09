@@ -11,6 +11,7 @@ const aComposeFunctionThatAlwaysWorks =
 export const initialState = {
   userMe: null,
   companies: [],
+  isMap: Boolean,
 };
 const persistConfig = {
   key: "root",

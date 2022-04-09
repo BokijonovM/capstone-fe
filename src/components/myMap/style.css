@@ -1,17 +1,30 @@
 .my-map-main-div {
-  width: 41%;
-  height: 77vh;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  right: 10px;
-  top: 89px;
+  position: absolute;
+  z-index: 0;
+  right: 5px;
+  top: 0px;
+  width: 100%;
+  height: 98.5%;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+  cursor: grab;
+}
+
+.my-map-main-div-1 {
+  top: 85.2px;
+  height: 594.8px;
+  flex-direction: row;
+  margin-top: -64px;
+  position: sticky;
 }
 @media (max-width: 768px) {
   .my-map-main-div {
+    display: none;
+  }
+  .my-map-main-div-1 {
     display: none;
   }
 }
