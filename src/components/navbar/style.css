@@ -8,6 +8,14 @@
     transform: translateX(0);
   }
 }
+@keyframes slideInTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
 .login-text {
   text-decoration: none !important;
@@ -26,7 +34,7 @@
   border-radius: 32px;
 }
 .my-mav-main-div-180-line {
-  position: fixed;
+  /* position: fixed; */
   z-index: 99 !important;
   width: 100vw;
   animation: 1s ease-out 0s 1 slideInLeft;
@@ -83,4 +91,20 @@
   .search-component-div-cont {
     right: 20px;
   }
+}
+.extra-navbar {
+  width: 100%;
+  height: 75px;
+  position: fixed;
+  background-color: white;
+  z-index: 999;
+  top: 0;
+  /* border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px; */
+  animation: 0.4s ease-out 0s 1 slideInTop;
+  /* transition: all 0.5s ease !important; */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  /* display: flex;
+  align-content: center;
+  align-items: center; */
 }

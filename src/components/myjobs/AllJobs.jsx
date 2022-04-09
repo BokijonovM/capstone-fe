@@ -13,8 +13,7 @@ function AllJobs() {
   const [allJobs, setAllJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [byTitle, setByTitle] = useState("");
-  const [byLocation, setByLocation] = useState("");
-  const [byCompany, setByCompany] = useState("");
+
   const fetchAllJobs = async () => {
     try {
       let res = await fetch(`${process.env.REACT_APP_API_MAIN_URL}/jobs`, {
@@ -37,16 +36,6 @@ function AllJobs() {
   }, []);
   return (
     <div className="d-flex justify-content-center flex-column align-items-center">
-      <div className="search-fields-main-div-1">
-        <TextField
-          id="outlined-basic"
-          label="Title"
-          variant="outlined"
-          size="small"
-          onChange={(e) => setByTitle(e.target.value)}
-        />
-      </div>
-
       {isLoading ? (
         <MyLoader />
       ) : (
@@ -125,7 +114,7 @@ function AllJobs() {
                     })}
                   </div>
                 </div>
-                <div className="">
+                <div className="d-flex flex-column align-items-end">
                   <h6 className="" style={{ fontSize: "12px" }}>
                     ${job.salary}
                   </h6>
@@ -146,3 +135,12 @@ function AllJobs() {
 }
 
 export default AllJobs;
+// <div className="search-fields-main-div-1">
+//   <TextField
+//     id="outlined-basic"
+//     label="Title"
+//     variant="outlined"
+//     size="small"
+//     onChange={(e) => setByTitle(e.target.value)}
+//   />
+// </div>;

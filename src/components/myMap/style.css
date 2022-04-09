@@ -1,0 +1,17 @@
+.my-map-main-div {
+  width: 41%;
+  height: 77vh;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  right: 10px;
+  top: 89px;
+}
+@media (max-width: 768px) {
+  .my-map-main-div {
+    display: none;
+  }
+}

@@ -21,20 +21,23 @@ function JobImage({ job }) {
   };
   useEffect(() => {
     fetchJobs();
-    console.log("coveeer", job);
   }, []);
   return (
     <div>
-      {company.map((c) => {
-        return (
-          <Avatar
-            className="company-cover-image"
-            alt="ji"
-            src={c.cover}
-            // src={job.cover}
-          />
-        );
-      })}
+      {company ? (
+        company.map((c) => {
+          return (
+            <Avatar
+              className="company-cover-image"
+              alt="No Name"
+              src={c.cover || "/static/images/avatar/1.jpg"}
+              // src={job.cover}
+            />
+          );
+        })
+      ) : (
+        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+      )}
     </div>
   );
 }

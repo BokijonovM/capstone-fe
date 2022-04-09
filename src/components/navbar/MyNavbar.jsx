@@ -11,6 +11,7 @@ import "./style.css";
 import MySearch from "./MySearch";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserInfoAction } from "../../redux/action";
+import ExtraNavbar from "./ExtraNavbar";
 const navigation = {
   categories: [
     {
@@ -171,6 +172,17 @@ export default function MyNavbar() {
     }
   }, []);
   const [open, setOpen] = useState(false);
+  const [navbar, setNavbar] = useState(false);
+
+  const extraHeader = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener("scroll", extraHeader);
 
   const fetchData = async (token) => {
     try {
@@ -491,6 +503,7 @@ export default function MyNavbar() {
                 <div className="flex lg:ml-6">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
+
                     <SearchIcon
                       className="w-6 h-6"
                       aria-hidden="true"
@@ -627,6 +640,7 @@ export default function MyNavbar() {
           </div>
         </nav>
       </header>
+      {navbar ? <ExtraNavbar /> : ""}
     </div>
   );
 }
