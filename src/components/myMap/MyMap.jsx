@@ -1,35 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-
-const containerStyle = {
-  width: "100%",
-  height: "100%",
-  borderRadius: "5px",
-};
-
-const center = {
-  lat: 52.233334,
-  lng: 21.017532,
-};
+import { MapContainer, TileLayer, Marker, ZoomControl } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 function MyMap() {
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "AIzaSyCIcRarK0J3xgsQYLWVSBuNrI-huAMgSWs",
-  });
-
-  const [map, setMap] = React.useState(null);
-
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map);
-  }, []);
-
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null);
-  }, []);
+  const [isLoaded, setIsLoaded] = useState(false);
   return (
     <MapContainer
       center={[52.233334, 21.016666]}
