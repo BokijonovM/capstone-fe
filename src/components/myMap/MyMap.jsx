@@ -31,23 +31,21 @@ function MyMap() {
     setMap(null);
   }, []);
   return (
-    <div className="w-100 my-map-main-div-1">
-      <div className="my-map-main-div mb-5">
-        {isLoaded ? (
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={10}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
-          >
-            {/* Child components, such as markers, info windows, etc. */}
-          </GoogleMap>
-        ) : (
-          ""
-        )}
-      </div>
-    </div>
+    <MapContainer
+      center={[52.233334, 21.016666]}
+      zoom={12}
+      scrollWheelZoom={false}
+      zoomControl={false}
+      dragging={false}
+      doubleClickZoom={false}
+      attributionControl={false}
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <ZoomControl position="topright" />
+    </MapContainer>
   );
 }
 
