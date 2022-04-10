@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Avatar from "@mui/material/Avatar";
+import Tooltip from "@mui/material/Tooltip";
 
 function CompImage({ job }) {
   const [company, setCompany] = useState([]);
@@ -26,7 +26,9 @@ function CompImage({ job }) {
     <div>
       {company.map((c) => {
         return (
-          <img className="comp-image-src-img" src={c.cover} alt={c.name} />
+          <Tooltip title={c.name} arrow>
+            <img className="comp-image-src-img" src={c.cover} alt={c.name} />
+          </Tooltip>
         );
       })}
     </div>

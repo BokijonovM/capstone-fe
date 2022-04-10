@@ -32,3 +32,13 @@
   font-size: 2vw !important;
   background-color: #564de5 !important;
 }
+.singe-job-all-skills {
+  padding: 7px 10px;
+  font-size: 14px;
+  background-color: #564de5;
+  margin-right: 5px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 650;
+  cursor: pointer;
+}

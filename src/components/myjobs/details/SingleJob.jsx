@@ -10,6 +10,8 @@ import WorkIcon from "@mui/icons-material/Work";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import Filter2RoundedIcon from "@mui/icons-material/Filter2Rounded";
 import RemoveCircleRoundedIcon from "@mui/icons-material/RemoveCircleRounded";
+import Tooltip from "@mui/material/Tooltip";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 function SingleJob() {
   const params = useParams();
@@ -61,9 +63,11 @@ function SingleJob() {
                     <h6 style={{ fontSize: "17px" }}>${job.salary}</h6>
                   </div>
                 </div>
-                <Button className="apply-job-apply-btn" variant="contained">
-                  APPLY
-                </Button>
+                <Tooltip title="Apply" placement="left">
+                  <Button className="apply-job-apply-btn" variant="contained">
+                    APPLY
+                  </Button>
+                </Tooltip>
               </Row>
               <Row className="m-3 w-100 justify-content-between">
                 <div className="d-flex align-items-center">
@@ -112,14 +116,81 @@ function SingleJob() {
                     {job.techStack.length !== 0 ? (
                       job.techStack.map((j) => {
                         return (
-                          <h6 className="singe-job-all-skills">{j.skill}</h6>
+                          <Tooltip title={j.skill} placement="top">
+                            <h6 className="singe-job-all-skills">{j.skill}</h6>
+                          </Tooltip>
                         );
                       })
                     ) : (
-                      <h6 className="singe-job-all-skills">
+                      <h6 className="">
                         <RemoveCircleRoundedIcon style={{ color: "#564de5" }} />
                       </h6>
                     )}
+                  </div>
+                </div>
+              </Row>
+              <Row className="m-3 w-100 flex-column justify-content-center">
+                <h6 className="text-muted" style={{ fontSize: "12px" }}>
+                  DETAILS
+                </h6>
+                <div>
+                  <h6 className="mt-3" style={{ fontSize: "20px" }}>
+                    JOB DESCRIPTION
+                  </h6>
+                  <p className="mx-3">{job.description}</p>
+                </div>
+                <div className="mt-4">
+                  <h6 className="mt-3" style={{ fontSize: "20px" }}>
+                    We’ll ask you to
+                  </h6>
+                  <div className="ml-3">
+                    {job.responsibilities.map((r) => {
+                      return (
+                        <p className="mb-1 d-flex align-items-center">
+                          <CheckCircleIcon
+                            className="mr-1"
+                            style={{ color: "#564de5" }}
+                          />
+                          {r.responsibility}
+                        </p>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h6 className="mt-3" style={{ fontSize: "20px" }}>
+                    Requirements
+                  </h6>
+                  <div className="ml-3">
+                    {job.requirements.map((r) => {
+                      return (
+                        <p className="mb-1 d-flex align-items-center">
+                          <CheckCircleIcon
+                            className="mr-1"
+                            style={{ color: "#564de5" }}
+                          />
+                          {r.requirement}
+                        </p>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h6 className="mt-3" style={{ fontSize: "20px" }}>
+                    We offer
+                  </h6>
+                  <div className="ml-3">
+                    {job.offers.map((r) => {
+                      return (
+                        <p className="mb-1 d-flex align-items-center">
+                          <CheckCircleIcon
+                            className="mr-1"
+                            style={{ color: "#564de5" }}
+                          />
+                          {r.offer}
+                        </p>
+                      );
+                    })}
                   </div>
                 </div>
               </Row>
