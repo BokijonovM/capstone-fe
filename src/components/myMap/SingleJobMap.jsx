@@ -22,8 +22,9 @@ function SingleJobMap() {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
     <MapContainer
+      style={{ height: "100%" }}
       center={[52.233334, 21.016666]}
-      zoom={11}
+      zoom={13}
       scrollWheelZoom={true}
       zoomControl={false}
     >
