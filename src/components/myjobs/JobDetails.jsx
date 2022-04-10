@@ -37,7 +37,7 @@ function JobDetails() {
   return (
     <div className="m-0 p-0 w-100">
       <Row className="w-100 m-0 p-0">
-        {isMyJob ? <MyJob job={job} /> : <SingleJob job={job} />}
+        {isMyJob ? <MyJob /> : <SingleJob job={job} />}
       </Row>
       <Row className="w-100 m-0 p-0 mb-5 justify-content-center align-items-center">
         <SimilarJobs job={job} />
