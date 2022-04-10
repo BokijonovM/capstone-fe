@@ -39,7 +39,7 @@
 /* Track */
 ::-webkit-scrollbar-track {
   background: #121212;
-  background: transparent !important;
+  background: rgb(233, 233, 233) !important;
   z-index: 0 !important;
 }
 

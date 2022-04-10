@@ -77,7 +77,8 @@
 }
 .all-jobs-tech-stack-div {
   border-radius: 32px;
-  font-size: 10px;
+  font-size: 8px;
+  margin: 2px;
   border: 0.1px solid grey !important;
 }
 .search-fields-main-div-1 {
@@ -109,4 +110,9 @@
 .css-1x4vipr-MuiButtonBase-root-MuiToggleButton-root.Mui-selected {
   background-color: rgb(86, 77, 229) !important;
   color: white !important;
+}
+.job-posted-n-ago {
+  border: 0.1px solid grey;
+  border-radius: 32px;
+  font-size: 7px;
 }

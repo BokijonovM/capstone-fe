@@ -116,12 +116,12 @@ function AllJobs({ setIsMap }) {
                     </h6>
                   </div>
                 </div>
-                <div className="all-jobs-tech-stack d-flex flex-column justify-content-center align-items-center">
+                <div className="d-none all-jobs-tech-stack d-flex flex-column justify-content-center align-items-center">
                   <div className="d-flex">
                     {job.techStack.slice(0, 3).map((t) => {
                       return (
                         <div
-                          className="all-jobs-tech-stack-div m-1 py-1 px-2"
+                          className="all-jobs-tech-stack-div py-1 px-2"
                           key={t._id}
                         >
                           {t.skill}
@@ -133,19 +133,7 @@ function AllJobs({ setIsMap }) {
                     {job.techStack.slice(3, 6).map((t) => {
                       return (
                         <div
-                          className="all-jobs-tech-stack-div m-1 py-1 px-2"
-                          key={t._id}
-                        >
-                          {t.skill}
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <div className="d-flex">
-                    {job.techStack.slice(6, 9).map((t) => {
-                      return (
-                        <div
-                          className="all-jobs-tech-stack-div m-1 py-1 px-2"
+                          className="all-jobs-tech-stack-div py-1 px-2"
                           key={t._id}
                         >
                           {t.skill}
@@ -158,7 +146,8 @@ function AllJobs({ setIsMap }) {
                   <h6 className="" style={{ fontSize: "12px" }}>
                     ${job.salary}
                   </h6>
-                  <h6 className="mb-0">
+
+                  <h6 className="mb-0 job-posted-n-ago py-1 px-2">
                     {moment
                       .utc(job.createdAt)
                       .local()

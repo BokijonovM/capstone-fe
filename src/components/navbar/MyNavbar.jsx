@@ -206,7 +206,10 @@ export default function MyNavbar() {
   };
 
   return (
-    <div className="bg-white my-mav-main-div-180-line">
+    <div
+      className="bg-white my-mav-main-div-180-line"
+      style={{ position: "absolute", zIndex: "9999", top: "0" }}
+    >
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog

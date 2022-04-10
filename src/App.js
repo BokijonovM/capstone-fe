@@ -22,7 +22,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <MyNavbar />
-        <div>
+        <div style={{ paddingTop: "65px" }}>
           <Routes>
             <Route path="/" element={<MyMain />} />
             <Route path="/login" element={<MyLogin />} />
