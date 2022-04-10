@@ -1,0 +1,34 @@
+.col-for-map-and-apply {
+  height: 86vh;
+  width: 100%;
+}
+.col-2-for-map-main-div {
+  width: 100%;
+  height: 60%;
+  background-color: red;
+}
+.col-2-for-map-2nd-div {
+  width: 100%;
+  height: 40%;
+  background-color: rgb(206, 162, 162);
+}
+/* .job-title-comp-info-row {
+  background-color: aqua;
+} */
+.comp-image-src-img {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.job-details-hob-title {
+  font-size: 3vw;
+}
+.job-details-hob-company-name {
+  font-size: 1.2vw;
+  color: #564de5;
+}
+.apply-job-apply-btn {
+  font-size: 2vw !important;
+  background-color: #564de5 !important;
+}

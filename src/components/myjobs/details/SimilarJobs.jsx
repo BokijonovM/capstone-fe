@@ -63,13 +63,12 @@ function SimilarJobs() {
         ) : (
           jobs.map((job) => {
             return (
-              <Col className="py-0 px-2" key={job._id}>
+              <Col
+                className={job._id === params.id ? "d-none" : "py-0 px-2"}
+                key={job._id}
+              >
                 <div
-                  className={
-                    job._id === params.id
-                      ? "d-none"
-                      : "all-jobs-main-div-2nd-page my-2 p-4"
-                  }
+                  className="all-jobs-main-div-2nd-page my-2 p-4"
                   key={job._id}
                   onClick={() => navigate(`/jobs/${job._id}`)}
                 >

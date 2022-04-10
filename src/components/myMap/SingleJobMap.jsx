@@ -18,7 +18,7 @@ const myIcon = new Icon({
 
 const position = [52.233334, 21.016666];
 
-function MyMap() {
+function SingleJobMap() {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
     <MapContainer
@@ -41,4 +41,4 @@ function MyMap() {
   );
 }
 
-export default MyMap;
+export default SingleJobMap;
