@@ -104,7 +104,10 @@
   animation: 0.4s ease-out 0s 1 slideInTop;
   /* transition: all 0.5s ease !important; */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  /* display: flex;
+  display: flex;
   align-content: center;
-  align-items: center; */
+  align-items: center;
+}
+.extra-header-2nd-div {
+  display: flex;
 }
