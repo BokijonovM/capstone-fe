@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setUserInfoAction } from "../../redux/action";
+import { useSelector } from "react-redux";
 import MyJob from "./details/MyJob";
 import SingleJob from "./details/SingleJob";
+import SimilarJobs from "./details/SimilarJobs";
 
 function JobDetails() {
   const params = useParams();
@@ -35,8 +35,21 @@ function JobDetails() {
     fetchJob();
   }, []);
   return (
-    <div className="m-0 p-0 w-100">{isMyJob ? <MyJob /> : <SingleJob />}</div>
+    <div className="m-0 p-0 w-100">
+      <Row className="w-100 m-0 p-0">
+        {isMyJob ? <MyJob job={job} /> : <SingleJob job={job} />}
+      </Row>
+      <Row className="w-100 m-0 p-0 mb-5 justify-content-center align-items-center">
+        <SimilarJobs job={job} />
+      </Row>
+    </div>
   );
 }
 
 export default JobDetails;
+
+// <Row className="w-100 pl-3 m-0 p-0 justify-content-start align-items-center">
+//   <Col className="">
+//     <h4> Discover similar jobs</h4>
+//   </Col>
+// </Row>

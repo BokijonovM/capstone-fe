@@ -28,6 +28,7 @@ function JobImage({ job }) {
         company.map((c) => {
           return (
             <Avatar
+              key={c._id}
               className="company-cover-image"
               alt="No Name"
               src={c.cover || "/static/images/avatar/1.jpg"}

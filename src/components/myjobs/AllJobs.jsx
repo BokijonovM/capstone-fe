@@ -110,9 +110,6 @@ function AllJobs({ setIsMap }) {
                         <LocationOnIcon className="mr-1" fontSize="12px" />{" "}
                         {job.location}
                       </span>
-                      <span className="ml-3">
-                        <WorkIcon className="mr-1" fontSize="12px" /> {job.type}
-                      </span>
                     </h6>
                   </div>
                 </div>

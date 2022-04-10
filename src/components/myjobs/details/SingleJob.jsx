@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Row, Col } from "react-bootstrap";
 
-function SingleJob() {
+function SingleJob({ job }) {
   return <div>SingleJob</div>;
 }
 
