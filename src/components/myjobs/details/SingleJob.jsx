@@ -207,7 +207,9 @@ function SingleJob() {
                 </div>
               </Row>
               {footer ? (
-                <Row className="apply-down-btn-row m-0 mr-3 p-0">Hello</Row>
+                <Row className="apply-down-btn-row m-0 mr-3 p-0 px-3">
+                  Hello
+                </Row>
               ) : (
                 ""
               )}

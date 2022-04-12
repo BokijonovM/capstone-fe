@@ -9,12 +9,15 @@ function Search({ allJobs }) {
   function getFullName(item) {
     return item.title;
   }
-  const top100Films = [{ label: data, year: 1994 }];
+  const top100Films = [
+    { label: "hi", year: 1994 },
+    { label: "yy", year: 1994 },
+  ];
   return (
     <Autocomplete
       disablePortal
       id="combo-box-demo"
-      options={top100Films}
+      options={data}
       sx={{ width: 200 }}
       renderInput={(params) => (
         <TextField
