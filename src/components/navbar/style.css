@@ -97,7 +97,7 @@
   height: 70px;
   position: fixed;
   background-color: white;
-  z-index: 999;
+  z-index: 999 !important;
   top: 0;
   /* border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px; */

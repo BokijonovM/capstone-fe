@@ -10,6 +10,7 @@ import {
 import "leaflet/dist/leaflet.css";
 import imageLogo from "../assets/geo-alt.svg";
 import { Icon } from "leaflet";
+import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 
 const myIcon = new Icon({
   iconUrl: imageLogo,
@@ -22,7 +23,7 @@ function SingleJobMap() {
   const [isLoaded, setIsLoaded] = useState(false);
   return (
     <MapContainer
-      style={{ height: "100%" }}
+      style={{ height: "100%", zIndex: "-1 !important" }}
       center={[52.233334, 21.016666]}
       zoom={13}
       scrollWheelZoom={true}

@@ -31,6 +31,14 @@
   font-size: 2vw !important;
   background-color: #564de5 !important;
 }
+.apply-job-update-btn {
+  font-size: 1.5vw !important;
+  background-color: #564de5 !important;
+}
+.apply-job-delete-btn {
+  font-size: 1.5vw !important;
+  background-color: red !important;
+}
 .singe-job-all-skills {
   padding: 7px 10px;
   font-size: 14px;
