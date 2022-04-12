@@ -19,6 +19,17 @@ function SingleJob() {
   const [job, setJob] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const userMe = useSelector((state) => state.userMe);
+  const [footer, setFooter] = useState(false);
+
+  const extraHeader = () => {
+    if (window.scrollY >= 200) {
+      setFooter(true);
+    } else {
+      setFooter(false);
+    }
+  };
+
+  window.addEventListener("scroll", extraHeader);
   const fetchJob = async () => {
     try {
       let res = await fetch(
@@ -195,8 +206,14 @@ function SingleJob() {
                   </div>
                 </div>
               </Row>
+              {footer ? (
+                <Row className="apply-down-btn-row m-0 mr-3 p-0">Hello</Row>
+              ) : (
+                ""
+              )}
             </Row>
           </Col>
+
           <Col className="col-for-map-and-apply p-0" md={4}>
             <Row className="col-2-for-map-main-div m-0 mb-2 mt-n1"></Row>
             <Row className="col-2-for-map-2nd-div m-0">

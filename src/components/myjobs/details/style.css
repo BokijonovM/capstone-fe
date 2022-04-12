@@ -1,6 +1,8 @@
 .col-for-map-and-apply {
   height: 86vh;
   width: 100%;
+  position: sticky;
+  top: 12vh;
 }
 .col-2-for-map-main-div {
   width: 100%;
@@ -48,4 +50,32 @@
   color: white;
   font-weight: 650;
   cursor: pointer;
+}
+.apply-down-btn-row {
+  height: 60px;
+  background-color: red;
+  width: 100%;
+  /* position: fixed; */
+  /* left: 0;
+  bottom: 0; */
+  position: sticky;
+  top: 100px;
+  z-index: 999;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  animation: 0.4s ease-out 0s 1 slideInTopFooter;
+}
+@media (max-width: 767px) {
+  .apply-down-btn-row {
+    width: 100vw;
+  }
+}
+@keyframes slideInTopFooter {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
