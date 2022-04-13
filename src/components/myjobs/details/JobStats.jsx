@@ -58,55 +58,59 @@ export default function JobStats({ applicants }) {
   //   static demoUrl =
   //     "https://codesandbox.io/s/line-chart-with-customized-label-hs5b7";
 
+  useEffect(() => {
+    console.log("applicants", applicants);
+  }, []);
+
   const data = [
     {
       name: yesterday5
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      pv: 24,
+      apc: 24,
     },
     {
       name: yesterday4
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      pv: 13,
+      apc: 13,
     },
     {
       name: yesterday3
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      pv: 28,
+      apc: 28,
     },
     {
       name: yesterday2
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      pv: 39,
+      apc: 39,
     },
     {
       name: yesterday1
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      pv: 48,
+      apc: 48,
     },
     {
       name: yesterday
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      pv: 38,
+      apc: 38,
     },
     {
       name: date
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      pv: 43,
+      apc: 43,
     },
   ];
   return (
@@ -128,7 +132,7 @@ export default function JobStats({ applicants }) {
 
         <Line
           type="monotone"
-          dataKey="pv"
+          dataKey="apc"
           stroke="#8884d8"
           label={<CustomizedLabel />}
         />
