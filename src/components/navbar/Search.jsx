@@ -3,16 +3,11 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 
 function Search({ allJobs }) {
-  console.log("hhh", allJobs);
   const data = allJobs.map(getFullName);
-  console.log("ajkdakna", data);
   function getFullName(item) {
     return item.title;
   }
-  const top100Films = [
-    { label: "hi", year: 1994 },
-    { label: "yy", year: 1994 },
-  ];
+
   return (
     <Autocomplete
       disablePortal

@@ -13,6 +13,7 @@ import RemoveCircleRoundedIcon from "@mui/icons-material/RemoveCircleRounded";
 import Tooltip from "@mui/material/Tooltip";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import "./style.css";
+import JobStats from "./JobStats";
 
 function SingleJob() {
   const params = useParams();
@@ -56,7 +57,7 @@ function SingleJob() {
         <MyLoader />
       ) : (
         <Row className="m-3 p-0" sm={1} md={2}>
-          <Col className="p-0" md={8}>
+          <Col className="" md={8}>
             <Row className="job-title-comp-info-row m-0">
               <Row className="w-100 m-3 align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
@@ -206,19 +207,20 @@ function SingleJob() {
                   </div>
                 </div>
               </Row>
+              <Row className="statistics-down-btn-row m-0 p-0 pr-3 mb-4">
+                <JobStats applicants={job.applicants} />
+              </Row>
               {footer ? (
-                <Row className="apply-down-btn-row m-0 mr-3 p-0 px-3">
-                  Hello
-                </Row>
+                <Row className="apply-down-btn-row m-0 p-0 px-3">Hello</Row>
               ) : (
                 ""
               )}
             </Row>
           </Col>
 
-          <Col className="col-for-map-and-apply p-0" md={4}>
-            <Row className="col-2-for-map-main-div m-0 mb-2 mt-n1"></Row>
-            <Row className="col-2-for-map-2nd-div m-0">
+          <Col className="col-for-map-and-apply " md={4}>
+            <Row className="col-2-for-map-main-div m-0 mt-n1"></Row>
+            <Row className="col-2-for-map-2nd-div m-0 mt-1">
               <SingleJobMap />
             </Row>
           </Col>
