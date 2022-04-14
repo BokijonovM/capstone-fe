@@ -79,7 +79,7 @@ function MyJob() {
                     <h6 style={{ fontSize: "17px" }}>${job.salary}</h6>
                   </div>
                 </div>
-                <Tooltip title="Apply" placement="left">
+                <Tooltip title="Delete" placement="left">
                   <Button className="delete-job-apply-btn" variant="contained">
                     DELETE
                   </Button>
@@ -239,7 +239,7 @@ function MyJob() {
                   <h6 className="mb-0 text-light ml-auto mr-3">
                     ${job.salary}
                   </h6>
-                  <Tooltip title="Apply" placement="top">
+                  <Tooltip title="Delete" placement="top">
                     <Button
                       className="delete-job-apply-btn-down"
                       variant="contained"
