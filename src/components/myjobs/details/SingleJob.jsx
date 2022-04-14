@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import SingleJobMap from "../../myMap/SingleJobMap";
 import CompImage from "./CompImage";
 import Button from "@mui/material/Button";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import MyLoader from "../../loader/MyLoader";
 import WorkIcon from "@mui/icons-material/Work";
@@ -14,8 +14,10 @@ import Tooltip from "@mui/material/Tooltip";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import "./style.css";
 import JobStats from "./JobStats";
+import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 
 function SingleJob() {
+  const navigate = useNavigate();
   const params = useParams();
   const [job, setJob] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -211,7 +213,40 @@ function SingleJob() {
                 <JobStats applicants={job.applicants} />
               </Row>
               {footer ? (
-                <Row className="apply-down-btn-row m-0 p-0 px-3">Hello</Row>
+                <Row className="apply-down-btn-row m-0 p-0 px-3 justify-content-between w-100">
+                  <ArrowBackOutlinedIcon
+                    className="go-back-arrow"
+                    onClick={() => navigate("/")}
+                  />
+                  <div className="d-flex align-items-center ml-3">
+                    {job.techStack.length !== 0 ? (
+                      job.techStack.slice(0, 3).map((j) => {
+                        return (
+                          <Tooltip title={j.skill} placement="top">
+                            <h6 className="singe-job-all-skills-down mb-0">
+                              {j.skill}
+                            </h6>
+                          </Tooltip>
+                        );
+                      })
+                    ) : (
+                      <h6 className="">
+                        <RemoveCircleRoundedIcon style={{ color: "#564de5" }} />
+                      </h6>
+                    )}
+                  </div>
+                  <h6 className="mb-0 text-light ml-auto mr-3">
+                    ${job.salary}
+                  </h6>
+                  <Tooltip title="Apply" placement="top">
+                    <Button
+                      className="apply-job-apply-btn-down"
+                      variant="contained"
+                    >
+                      APPLY
+                    </Button>
+                  </Tooltip>
+                </Row>
               ) : (
                 ""
               )}

@@ -59,8 +59,10 @@ export default function JobStats({ applicants }) {
   //     "https://codesandbox.io/s/line-chart-with-customized-label-hs5b7";
 
   useEffect(() => {
-    console.log("applicants", applicants);
+    console.log("applicants", applicants.length);
   }, []);
+
+  const length = applicants.length;
 
   const data = [
     {
@@ -68,49 +70,49 @@ export default function JobStats({ applicants }) {
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 24,
+      apc: length,
     },
     {
       name: yesterday4
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 13,
+      apc: 3,
     },
     {
       name: yesterday3
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 28,
+      apc: 2,
     },
     {
       name: yesterday2
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 39,
+      apc: length,
     },
     {
       name: yesterday1
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 48,
+      apc: 4,
     },
     {
       name: yesterday
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 38,
+      apc: 3,
     },
     {
       name: date
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 43,
+      apc: 4,
     },
   ];
   return (

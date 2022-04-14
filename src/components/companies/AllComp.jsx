@@ -62,7 +62,7 @@ function AllComp() {
             .map((c) => {
               return (
                 <Col className="p-0" key={c._id}>
-                  <Card className=" my-2 companies-main-card">
+                  <Card className=" my-2 companies-main-card-2">
                     <Card.Img
                       variant="top"
                       className="card-comp-image-banner"

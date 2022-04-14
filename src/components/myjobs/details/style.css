@@ -35,6 +35,10 @@
   font-size: 2vw !important;
   background-color: #564de5 !important;
 }
+.delete-job-apply-btn {
+  font-size: 1.5vw !important;
+  background-color: red !important;
+}
 .apply-job-update-btn {
   font-size: 1.5vw !important;
   background-color: #564de5 !important;
@@ -92,6 +96,35 @@
   align-content: center;
   border-radius: 5px;
 }
+.delete-job-apply-btn-down {
+  border-radius: 99px !important;
+  background-color: red !important;
+  color: white !important;
+}
+
+.apply-job-apply-btn-down {
+  /* margin-left: auto !important; */
+  border-radius: 99px !important;
+  background-color: white !important;
+  color: #564de5 !important;
+}
+.go-back-arrow {
+  border-radius: 50%;
+  background-color: white !important;
+  color: #564de5 !important;
+  font-size: 35px !important;
+  cursor: pointer;
+}
+.singe-job-all-skills-down {
+  padding: 7px 10px;
+  font-size: 14px;
+  background-color: white;
+  margin-right: 5px;
+  border-radius: 5px;
+  color: #564de5;
+  font-weight: 650;
+  cursor: pointer;
+}
 @media (max-width: 767px) {
   .apply-down-btn-row {
     width: 100vw;
@@ -101,5 +134,8 @@
   }
   .col-2-for-map-main-div {
     margin-top: 10px !important;
+  }
+  .singe-job-all-skills-down {
+    display: none;
   }
 }

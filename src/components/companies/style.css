@@ -58,6 +58,10 @@
   display: block;
   transition: all 0.9s ease !important;
 }
+.companies-main-card-2:hover .class-div-card-hover-text {
+  display: block;
+  transition: all 0.9s ease !important;
+}
 @keyframes cardAnimation {
   0% {
     opacity: 0;
@@ -85,4 +89,10 @@
   100% {
     transform: translateY(0);
   }
+}
+.companies-main-card-2 {
+  position: relative;
+  border: 0;
+  border-radius: 5px !important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
