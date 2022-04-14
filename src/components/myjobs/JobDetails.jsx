@@ -41,7 +41,11 @@ function JobDetails() {
         {isMyJob ? <MyJob /> : <SingleJob job={job} />}
       </Row>
       <Row className="w-100 m-0 p-0 mb-5 justify-content-center align-items-center">
-        {isMyJob ? <AllApplicants job={job} /> : <SimilarJobs job={job} />}
+        {isMyJob ? (
+          <AllApplicants job={params.id} />
+        ) : (
+          <SimilarJobs job={job} />
+        )}
       </Row>
     </div>
   );

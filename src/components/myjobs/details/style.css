@@ -76,6 +76,11 @@
   align-content: center;
 }
 
+.applicant-user-div {
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 @keyframes slideInTopFooter {
   0% {
     transform: translateY(100%);
@@ -138,4 +143,12 @@
   .singe-job-all-skills-down {
     display: none;
   }
+}
+.quick-view-applicant {
+  background-color: #564de5;
+  border-radius: 50%;
+  color: white;
+  font-size: 30px !important;
+  cursor: pointer;
+  padding: 5px;
 }
