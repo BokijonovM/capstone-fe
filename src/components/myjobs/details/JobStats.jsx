@@ -11,7 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import moment from "moment";
+import Moment from "moment";
 
 let date = new Date();
 let yesterday = new Date(Date.now() - 86400000);
@@ -58,9 +58,62 @@ export default function JobStats({ applicants }) {
   //   static demoUrl =
   //     "https://codesandbox.io/s/line-chart-with-customized-label-hs5b7";
 
-  useEffect(() => {
-    console.log("applicants", applicants.length);
-  }, []);
+  // useEffect(() => {
+  //   console.log("applicants", applicants);
+  // }, []);
+
+  const todaysApp = applicants.filter(function (item) {
+    const itemTime = new Date(item.createdAt).getTime();
+    return (
+      Moment(itemTime).format("DD-MM-YYYY") ===
+      Moment(date).format("DD-MM-YYYY")
+    );
+  });
+
+  const yesterdayApp = applicants.filter(function (item) {
+    const itemTime = new Date(item.createdAt).getTime();
+    return (
+      Moment(itemTime).format("DD-MM-YYYY") ===
+      Moment(yesterday).format("DD-MM-YYYY")
+    );
+  });
+
+  const yesterdayApp1 = applicants.filter(function (item) {
+    const itemTime = new Date(item.createdAt).getTime();
+    return (
+      Moment(itemTime).format("DD-MM-YYYY") ===
+      Moment(yesterday1).format("DD-MM-YYYY")
+    );
+  });
+  const yesterdayApp2 = applicants.filter(function (item) {
+    const itemTime = new Date(item.createdAt).getTime();
+    return (
+      Moment(itemTime).format("DD-MM-YYYY") ===
+      Moment(yesterday2).format("DD-MM-YYYY")
+    );
+  });
+  const yesterdayApp3 = applicants.filter(function (item) {
+    const itemTime = new Date(item.createdAt).getTime();
+    return (
+      Moment(itemTime).format("DD-MM-YYYY") ===
+      Moment(yesterday3).format("DD-MM-YYYY")
+    );
+  });
+  const yesterdayApp4 = applicants.filter(function (item) {
+    const itemTime = new Date(item.createdAt).getTime();
+    return (
+      Moment(itemTime).format("DD-MM-YYYY") ===
+      Moment(yesterday4).format("DD-MM-YYYY")
+    );
+  });
+
+  const yesterdayApp5 = applicants.filter(function (item) {
+    const itemTime = new Date(item.createdAt).getTime();
+    return (
+      Moment(itemTime).format("DD-MM-YYYY") ===
+      Moment(yesterday5).format("DD-MM-YYYY")
+    );
+  });
 
   const length = applicants.length;
 
@@ -70,49 +123,49 @@ export default function JobStats({ applicants }) {
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: length,
+      apc: yesterdayApp5.length,
     },
     {
       name: yesterday4
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 3,
+      apc: yesterdayApp4.length,
     },
     {
       name: yesterday3
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 2,
+      apc: yesterdayApp3.length,
     },
     {
       name: yesterday2
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: length,
+      apc: yesterdayApp2.length,
     },
     {
       name: yesterday1
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 4,
+      apc: yesterdayApp1.length,
     },
     {
       name: yesterday
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 3,
+      apc: yesterdayApp.length,
     },
     {
       name: date
         .toLocaleString("en-us", { weekday: "long" })
         .toString()
         .slice(0, 3),
-      apc: 4,
+      apc: todaysApp.length,
     },
   ];
   return (

@@ -8,6 +8,13 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { PaperClipIcon } from "@heroicons/react/solid";
+import { AnimatePresence } from "framer-motion";
+import {
+  ToggleBtn,
+  ModalBox,
+  ModalContent,
+  ModalContainer,
+} from "./ModalStyle";
 
 function Applicant({ userId }) {
   // modal
@@ -73,100 +80,118 @@ function Applicant({ userId }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className="border-0"
+        // animation={true}
       >
         {isLoading ? (
           ""
         ) : (
-          <div className="quick-view-applicant-modal border-0 w-100">
+          <ModalBox
+            initial={{ opacity: 0, y: 60, scale: 0.5 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              // making use of framer-motion spring animation
+              // with stiffness = 300
+              transition: { type: "spring", stiffness: 300 },
+            }}
+            exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.6 } }}
+          >
             <div
-              className="bg-white shadow d-flex flex-column w-100 justify-content-center overflow-hidden  sm:rounded-lg"
-              style={{ height: "100%" }}
+              className="quick-view-applicant-modal border-0 w-100"
+              initial={{ y: -30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1, transition: { delay: 0.5 } }}
             >
-              <div className="d-flex align-items-center px-4 py-2 sm:px-6">
-                <div className=" ">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900">
-                    Applicant Information
-                  </h3>
-                  <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                    Personal details and application.
-                  </p>
+              <div
+                className="bg-white shadow d-flex flex-column w-100 justify-content-center overflow-hidden  sm:rounded-lg"
+                style={{ height: "100%" }}
+              >
+                <div className="d-flex align-items-center px-4 py-2 sm:px-6">
+                  <div className=" ">
+                    <h3 className="text-lg leading-6 font-medium text-gray-900">
+                      Applicant Information
+                    </h3>
+                    <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                      Personal details and application.
+                    </p>
+                  </div>
+                  <Avatar
+                    className="ml-auto mb-4"
+                    alt={user.firstName}
+                    src={user.image}
+                  />
                 </div>
-                <Avatar
-                  className="ml-auto mb-4"
-                  alt={user.firstName}
-                  src={user.image}
-                />
-              </div>
-              <div className="border-t border-gray-200">
-                <dl>
-                  <div className="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt className="text-sm font-medium text-gray-500">
-                      Full name
-                    </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                      {user.firstName} {user.lastName}
-                    </dd>
-                  </div>
-                  <div className="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt className="text-sm font-medium text-gray-500">
-                      Applicant title
-                    </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                      {user.title ? user.title : "Developer"}
-                    </dd>
-                  </div>
-                  <div className="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt className="text-sm font-medium text-gray-500">
-                      Email address
-                    </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                      {user.email ? user.email : "Not Provided"}
-                    </dd>
-                  </div>
-                  <div className="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt className="text-sm font-medium text-gray-500">
-                      Salary expectation
-                    </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                      $120,000
-                    </dd>
-                  </div>
+                <div className="border-t border-gray-200">
+                  <dl>
+                    <div className="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
+                        Full name
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {user.firstName} {user.lastName}
+                      </dd>
+                    </div>
+                    <div className="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
+                        Applicant title
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {user.title ? user.title : "Developer"}
+                      </dd>
+                    </div>
+                    <div className="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
+                        Email address
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {user.email ? user.email : "Not Provided"}
+                      </dd>
+                    </div>
+                    <div className="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
+                        Salary expectation
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        $120,000
+                      </dd>
+                    </div>
 
-                  <div className="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt className="text-sm font-medium text-gray-500">
-                      Attachments
-                    </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                      <ul
-                        role="list"
-                        className="border border-gray-200 rounded-md divide-y divide-gray-200"
-                      >
-                        <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-                          <div className="w-0 flex-1 flex items-center">
-                            <PaperClipIcon
-                              className="flex-shrink-0 h-5 w-5 text-gray-400"
-                              aria-hidden="true"
-                            />
-                            <span className="ml-2 flex-1 w-0 truncate">
-                              resume_back_end_developer.pdf
-                            </span>
-                          </div>
-                          <div className="ml-4 flex-shrink-0">
-                            <a
-                              href="#"
-                              className="font-medium text-indigo-600 hover:text-indigo-500"
-                            >
-                              Download
-                            </a>
-                          </div>
-                        </li>
-                      </ul>
-                    </dd>
-                  </div>
-                </dl>
+                    <div className="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
+                        Attachments
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        <ul
+                          role="list"
+                          className="border border-gray-200 rounded-md divide-y divide-gray-200"
+                        >
+                          <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                            <div className="w-0 flex-1 flex items-center">
+                              <PaperClipIcon
+                                className="flex-shrink-0 h-5 w-5 text-gray-400"
+                                aria-hidden="true"
+                              />
+                              <span className="ml-2 flex-1 w-0 truncate">
+                                resume_back_end_developer.pdf
+                              </span>
+                            </div>
+                            <div className="ml-4 flex-shrink-0">
+                              <a
+                                href="#"
+                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                              >
+                                Download
+                              </a>
+                            </div>
+                          </li>
+                        </ul>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
               </div>
             </div>
-          </div>
+          </ModalBox>
         )}
       </Modal>
     </div>

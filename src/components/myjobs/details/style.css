@@ -171,4 +171,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 5px !important;
+  /* animation: 0.4s ease-out 0s 1 slideInTopModal; */
+  /* -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards; */
 }
