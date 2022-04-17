@@ -48,13 +48,13 @@ function Applicant({ userId }) {
   }, []);
 
   return (
-    <div className="w-100">
+    <div className="w-100 my-1">
       {isLoading ? (
         ""
       ) : (
         <div className="w-100">
           <div className="d-flex align-items-center w-100 applicant-user-div py-2 px-3">
-            <Avatar alt={user.firstName} src="/static/images/avatar/1.jpg" />
+            <Avatar alt={user.firstName} src={user.image} />
             <h6 className="mb-0 ml-2">{user.firstName}</h6>
             <Tooltip title="View" placement="top">
               <VisibilityIcon
@@ -95,7 +95,7 @@ function Applicant({ userId }) {
             >
               <div
                 className="bg-white shadow d-flex flex-column w-100 justify-content-center overflow-hidden  sm:rounded-lg"
-                style={{ height: "100%" }}
+                style={{ height: "100% !important" }}
               >
                 <div className="d-flex align-items-center px-4 py-2 sm:px-6">
                   <div className=" ">
@@ -135,15 +135,26 @@ function Applicant({ userId }) {
                         Email address
                       </dt>
                       <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        {user.email ? user.email : "Not Provided"}
+                        <a href={`mailto:${user.email}`}>
+                          {" "}
+                          {user.email ? user.email : "Not Provided"}
+                        </a>
                       </dd>
                     </div>
                     <div className="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                       <dt className="text-sm font-medium text-gray-500">
-                        Salary expectation
+                        Location
                       </dt>
                       <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        $120,000
+                        {user.city}
+                      </dd>
+                    </div>
+                    <div className="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
+                        Experience
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {user.myExperience} years
                       </dd>
                     </div>
 
@@ -163,7 +174,7 @@ function Applicant({ userId }) {
                                 aria-hidden="true"
                               />
                               <span className="ml-2 flex-1 w-0 truncate">
-                                resume_back_end_developer.pdf
+                                {user.firstName}_{user.lastName}.pdf
                               </span>
                             </div>
                             <div className="ml-4 flex-shrink-0">

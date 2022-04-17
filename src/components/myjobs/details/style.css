@@ -165,7 +165,7 @@
 }
 .quick-view-applicant-modal {
   width: 70vw !important;
-  height: 70vh !important;
+  height: 75vh !important;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -173,4 +173,10 @@
   border-radius: 5px !important;
   /* animation: 0.4s ease-out 0s 1 slideInTopModal; */
   /* -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards; */
+}
+@media (max-width: 700px) {
+  .quick-view-applicant-modal {
+    height: 85vh !important;
+    width: 80vw !important;
+  }
 }
