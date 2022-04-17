@@ -3,18 +3,9 @@ import { Row, Col, Card } from "react-bootstrap";
 import Avatar from "@mui/material/Avatar";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import Tooltip from "@mui/material/Tooltip";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { PaperClipIcon } from "@heroicons/react/solid";
-import { AnimatePresence } from "framer-motion";
-import {
-  ToggleBtn,
-  ModalBox,
-  ModalContent,
-  ModalContainer,
-} from "./ModalStyle";
+import { ModalBox } from "./ModalStyle";
 
 function Applicant({ userId }) {
   // modal

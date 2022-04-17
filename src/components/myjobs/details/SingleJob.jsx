@@ -23,12 +23,41 @@ function SingleJob() {
   const [isLoading, setIsLoading] = useState(true);
   const userMe = useSelector((state) => state.userMe);
   const [footer, setFooter] = useState(false);
+  const myToken = localStorage.getItem("MyToken");
+  const dataJson = JSON.parse(JSON.stringify(myToken));
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const extraHeader = () => {
     if (window.scrollY >= 200) {
       setFooter(true);
     } else {
       setFooter(false);
+    }
+  };
+
+  const applyJob = async () => {
+    try {
+      const newApplicant = {
+        applicant: userMe._id,
+      };
+      let res = await fetch(
+        `${process.env.REACT_APP_API_MAIN_URL}/jobs/${params.id}/applicants`,
+        {
+          method: "POST",
+          body: JSON.stringify(newApplicant),
+          headers: {
+            authorization: dataJson,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (res.ok) {
+        console.log("posted");
+      } else {
+        console.log("post error");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -52,6 +81,9 @@ function SingleJob() {
   };
   useEffect(() => {
     fetchJob();
+    if (dataJson) {
+      setIsLoggedIn(true);
+    }
   }, []);
   return (
     <div className="w-100 p-0 m-0">
@@ -78,11 +110,26 @@ function SingleJob() {
                     <h6 style={{ fontSize: "17px" }}>${job.salary}</h6>
                   </div>
                 </div>
-                <Tooltip title="Apply" placement="left">
-                  <Button className="apply-job-apply-btn" variant="contained">
-                    APPLY
-                  </Button>
-                </Tooltip>
+                {isLoggedIn ? (
+                  <Tooltip title="Apply" placement="left">
+                    <Button
+                      className="apply-job-apply-btn"
+                      variant="contained"
+                      onClick={() => {
+                        applyJob();
+                        fetchJob();
+                      }}
+                    >
+                      APPLY
+                    </Button>
+                  </Tooltip>
+                ) : (
+                  <Tooltip title="Login" placement="left">
+                    <Button className="apply-job-apply-btn" variant="contained">
+                      LOGIN
+                    </Button>
+                  </Tooltip>
+                )}
               </Row>
               <Row className="m-3 w-100 justify-content-between">
                 <div className="d-flex align-items-center">
@@ -238,14 +285,29 @@ function SingleJob() {
                   <h6 className="mb-0 text-light ml-auto mr-3">
                     ${job.salary}
                   </h6>
-                  <Tooltip title="Apply" placement="top">
-                    <Button
-                      className="apply-job-apply-btn-down"
-                      variant="contained"
-                    >
-                      APPLY
-                    </Button>
-                  </Tooltip>
+                  {isLoggedIn ? (
+                    <Tooltip title="Apply" placement="top">
+                      <Button
+                        className="apply-job-apply-btn-down"
+                        variant="contained"
+                        onClick={() => {
+                          applyJob();
+                          fetchJob();
+                        }}
+                      >
+                        APPLY
+                      </Button>
+                    </Tooltip>
+                  ) : (
+                    <Tooltip title="Login" placement="top">
+                      <Button
+                        className="apply-job-apply-btn-down"
+                        variant="contained"
+                      >
+                        LOGIN
+                      </Button>
+                    </Tooltip>
+                  )}
                 </Row>
               ) : (
                 ""

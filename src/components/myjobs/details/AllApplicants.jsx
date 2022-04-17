@@ -32,7 +32,7 @@ function AllApplicants({ job }) {
   return (
     <div className="w-100">
       <h4 className={applicants.length === 1 ? "d-none" : "pl-3 mt-4 mb-3"}>
-        Discover similar jobs
+        All applicants
       </h4>
       {isLoading ? (
         ""
