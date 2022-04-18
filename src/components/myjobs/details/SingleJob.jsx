@@ -132,7 +132,10 @@ function SingleJob() {
                       disabled={isApplied}
                       onClick={() => {
                         applyJob();
-                        fetchJob();
+                        setIsApplied(true);
+                        setTimeout(() => {
+                          fetchJob();
+                        }, 3000);
                       }}
                     >
                       {isApplied ? "APPLIED" : "APPLY"}
