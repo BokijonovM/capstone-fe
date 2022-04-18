@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import {
   MapContainer,
@@ -10,7 +10,7 @@ import {
 import "leaflet/dist/leaflet.css";
 import imageLogo from "../assets/geo-alt.svg";
 import { Icon } from "leaflet";
-import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
+import { useSelector } from "react-redux";
 
 const myIcon = new Icon({
   iconUrl: imageLogo,
@@ -19,8 +19,16 @@ const myIcon = new Icon({
 
 const position = [52.233334, 21.016666];
 
-function SingleJobMap() {
-  const [isLoaded, setIsLoaded] = useState(false);
+function SingleJobMap({ job }) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const singleJob = useSelector((state) => state.singleJob);
+
+  useEffect(() => {
+    if (job) {
+      setIsLoading(false);
+    }
+  }, []);
   return (
     <MapContainer
       style={{ height: "100%", zIndex: "-1 !important" }}
@@ -35,7 +43,8 @@ function SingleJobMap() {
       />
       <Marker position={position} icon={myIcon}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          {singleJob?.companyName} <br />
+          {singleJob?.title} <br />${singleJob?.salary}
         </Popup>
       </Marker>
       <ZoomControl position="topright" />

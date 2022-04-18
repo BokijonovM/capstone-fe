@@ -15,8 +15,11 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import "./style.css";
 import JobStats from "./JobStats";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import { setSingleJobAction } from "../../../redux/action/index.js";
+import { useDispatch } from "react-redux";
 
 function SingleJob() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
   const [job, setJob] = useState(null);
@@ -26,6 +29,7 @@ function SingleJob() {
   const myToken = localStorage.getItem("MyToken");
   const dataJson = JSON.parse(JSON.stringify(myToken));
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isApplied, setIsApplied] = useState(false);
 
   const extraHeader = () => {
     if (window.scrollY >= 200) {
@@ -72,6 +76,16 @@ function SingleJob() {
         setJob(data);
         console.log("job", data);
         setIsLoading(false);
+        dispatch(setSingleJobAction(data));
+        data.applicants.filter(function (mee) {
+          const itIsMe = userMe._id;
+          if (mee.applicant._id === itIsMe) {
+            setIsApplied(true);
+            console.log("iiiii applied before");
+          } else {
+            console.log("nooooooo");
+          }
+        });
       } else {
         console.log("fetch error");
       }
@@ -115,12 +129,13 @@ function SingleJob() {
                     <Button
                       className="apply-job-apply-btn"
                       variant="contained"
+                      disabled={isApplied}
                       onClick={() => {
                         applyJob();
                         fetchJob();
                       }}
                     >
-                      APPLY
+                      {isApplied ? "APPLIED" : "APPLY"}
                     </Button>
                   </Tooltip>
                 ) : (
@@ -290,12 +305,13 @@ function SingleJob() {
                       <Button
                         className="apply-job-apply-btn-down"
                         variant="contained"
+                        disabled={isApplied}
                         onClick={() => {
                           applyJob();
                           fetchJob();
                         }}
                       >
-                        APPLY
+                        {isApplied ? "APPLIED" : "APPLY"}
                       </Button>
                     </Tooltip>
                   ) : (
@@ -316,9 +332,11 @@ function SingleJob() {
           </Col>
 
           <Col className="col-for-map-and-apply " md={4}>
-            <Row className="col-2-for-map-main-div m-0 mt-n1"></Row>
+            <Row className="col-2-for-map-main-div m-0 mt-n1 mb-2">
+              <h1>{job.applicants.length}</h1>
+            </Row>
             <Row className="col-2-for-map-2nd-div m-0 mt-1">
-              <SingleJobMap />
+              <SingleJobMap job={job} />
             </Row>
           </Col>
         </Row>

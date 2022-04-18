@@ -5,13 +5,15 @@ import { persistReducer, persistStore } from "redux-persist";
 import userReducer from "../reducer/myInfoReducer";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 import companiesReducer from "../reducer/compReducer";
+import singleJobReducer from "../reducer/singleJob.js";
+
 const aComposeFunctionThatAlwaysWorks =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const initialState = {
   userMe: null,
   companies: [],
-  isMap: Boolean,
+  singleJob: null,
 };
 const persistConfig = {
   key: "root",
@@ -26,6 +28,7 @@ const persistConfig = {
 const bigReducer = combineReducers({
   userMe: userReducer,
   companies: companiesReducer,
+  singleJob: singleJobReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, bigReducer);
