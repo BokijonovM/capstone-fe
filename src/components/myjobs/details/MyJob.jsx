@@ -15,7 +15,6 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import "./style.css";
 import JobStats from "./JobStats";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
-import AllApplicants from "./AllApplicants";
 
 function MyJob() {
   const navigate = useNavigate();
@@ -24,6 +23,9 @@ function MyJob() {
   const [isLoading, setIsLoading] = useState(true);
   const userMe = useSelector((state) => state.userMe);
   const [footer, setFooter] = useState(false);
+
+  const myToken = localStorage.getItem("MyToken");
+  const dataJson = JSON.parse(JSON.stringify(myToken));
 
   const extraHeader = () => {
     if (window.scrollY >= 200) {
@@ -51,6 +53,29 @@ function MyJob() {
       console.log(error);
     }
   };
+
+  const deleteJob = async () => {
+    try {
+      let res = await fetch(
+        `${process.env.REACT_APP_API_MAIN_URL}/jobs/${params.id}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: dataJson,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (res.ok) {
+        console.log("deleted");
+      } else {
+        console.log("delete error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchJob();
   }, []);
@@ -80,7 +105,14 @@ function MyJob() {
                   </div>
                 </div>
                 <Tooltip title="Delete" placement="left">
-                  <Button className="delete-job-apply-btn" variant="contained">
+                  <Button
+                    className="delete-job-apply-btn"
+                    variant="contained"
+                    onClick={() => {
+                      deleteJob();
+                      navigate("/");
+                    }}
+                  >
                     DELETE
                   </Button>
                 </Tooltip>
@@ -243,6 +275,10 @@ function MyJob() {
                     <Button
                       className="delete-job-apply-btn-down"
                       variant="contained"
+                      onClick={() => {
+                        deleteJob();
+                        navigate("/");
+                      }}
                     >
                       DELETE
                     </Button>

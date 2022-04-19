@@ -143,7 +143,11 @@ function SingleJob() {
                   </Tooltip>
                 ) : (
                   <Tooltip title="Login" placement="left">
-                    <Button className="apply-job-apply-btn" variant="contained">
+                    <Button
+                      className="apply-job-apply-btn"
+                      variant="contained"
+                      onClick={() => navigate("/login")}
+                    >
                       LOGIN
                     </Button>
                   </Tooltip>
@@ -322,6 +326,7 @@ function SingleJob() {
                       <Button
                         className="apply-job-apply-btn-down"
                         variant="contained"
+                        onClick={() => navigate("/login")}
                       >
                         LOGIN
                       </Button>

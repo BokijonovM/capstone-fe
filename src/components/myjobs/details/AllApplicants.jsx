@@ -2,6 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Applicant from "./Applicant";
+import TextField from "@mui/material/TextField";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 function AllApplicants({ job }) {
   const params = useParams();
@@ -17,7 +26,6 @@ function AllApplicants({ job }) {
         let data = await res.json();
         setApplicants(data);
         setIsLoading(false);
-        console.log("apppp", data);
       } else {
         console.log("fetch applicants error");
       }
@@ -26,14 +34,39 @@ function AllApplicants({ job }) {
     }
   };
 
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
   useEffect(() => {
     fetchApp();
   }, []);
   return (
     <div className="w-100 mx-4">
-      <h4 className={applicants.length === 1 ? "d-none" : "pl-3 mt-4 mb-3"}>
-        All applicants
-      </h4>
+      <div className="px-3 mt-4 mb-3 d-flex justify-content-between w-100 align-items-center">
+        <h4 className={applicants.length === 1 ? "d-none" : ""}>
+          All applicants
+        </h4>
+
+        <div className="d-flex justify-content-between align-items-center">
+          <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+            <InputLabel id="demo-select-small">Filter</InputLabel>
+            <Select
+              labelId="demo-select-small"
+              id="demo-select-small"
+              className="filter-condidates-drop"
+              value={age}
+              label="Age"
+              onChange={handleChange}
+            >
+              <MenuItem value={"Experience"}>Experience</MenuItem>
+              <MenuItem value={"Location"}>Location</MenuItem>
+            </Select>
+          </FormControl>
+        </div>
+      </div>
       {isLoading ? (
         ""
       ) : (

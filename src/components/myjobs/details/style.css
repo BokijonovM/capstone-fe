@@ -184,3 +184,13 @@
     width: 80vw !important;
   }
 }
+.filter-condidates-drop {
+  border-radius: 99px !important;
+  border-color: red !important;
+}
+.search-condidates-drop {
+  border-radius: 99px !important;
+}
+.css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 99px !important;
+}

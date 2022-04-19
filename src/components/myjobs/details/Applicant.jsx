@@ -6,6 +6,11 @@ import Tooltip from "@mui/material/Tooltip";
 import Modal from "@mui/material/Modal";
 import { PaperClipIcon } from "@heroicons/react/solid";
 import { ModalBox } from "./ModalStyle";
+import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
+import Filter2RoundedIcon from "@mui/icons-material/Filter2Rounded";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import StreetviewIcon from "@mui/icons-material/Streetview";
+import Button from "@mui/material/Button";
 
 function Applicant({ userId }) {
   // modal
@@ -52,16 +57,35 @@ function Applicant({ userId }) {
       {isLoading ? (
         ""
       ) : (
-        <div className="w-100">
-          <div className="d-flex align-items-center w-100 applicant-user-div py-2 px-3">
+        <div className="w-100 applicant-user-div  py-2 px-3">
+          <div className="d-flex align-items-center w-100 ">
             <Avatar alt={user.firstName} src={user.image} />
             <h6 className="mb-0 ml-2">{user.firstName}</h6>
+            <Tooltip title="Visit" placement="top">
+              <StreetviewIcon className="ml-auto quick-view-applicant" />
+            </Tooltip>
             <Tooltip title="View" placement="top">
               <VisibilityIcon
-                className="ml-auto quick-view-applicant"
+                className="ml-2 quick-view-applicant"
                 onClick={handleOpen}
               />
             </Tooltip>
+          </div>
+          <div className="d-flex justify-content-between align-items-center mt-2">
+            <h6 className="mb-0 d-flex align-items-center">
+              <LocationOnRoundedIcon
+                className="mr-1 ml-0"
+                style={{ color: "#564de5" }}
+              />
+              {user.city || "..."}
+            </h6>
+            <h6 className="mb-0 d-flex align-items-center">
+              <PsychologyIcon
+                className="mr-1 ml-0"
+                style={{ color: "#564de5" }}
+              />
+              {user.myExperience}
+            </h6>
           </div>
         </div>
       )}
@@ -106,11 +130,15 @@ function Applicant({ userId }) {
                       Personal details and application.
                     </p>
                   </div>
-                  <Avatar
-                    className="ml-auto mb-4"
-                    alt={user.firstName}
-                    src={user.image}
-                  />
+                  <div className="ml-auto d-flex align-items-center">
+                    <Avatar alt={user.firstName} src={user.image} />
+                    <Button size="small" className="ml-2" variant="outlined">
+                      Decline
+                    </Button>
+                    <Button size="small" className="ml-2" variant="contained">
+                      Accept
+                    </Button>
+                  </div>
                 </div>
                 <div className="border-t border-gray-200">
                   <dl>
@@ -149,7 +177,7 @@ function Applicant({ userId }) {
                         {user.city}
                       </dd>
                     </div>
-                    <div className="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div className="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                       <dt className="text-sm font-medium text-gray-500">
                         Experience
                       </dt>
