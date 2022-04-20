@@ -111,3 +111,13 @@
 .extra-header-2nd-div {
   display: flex;
 }
+.post-a-job-button-nav {
+  font-size: 14px;
+  border: 0.1px solid grey;
+  padding: 5px 10px;
+  border-radius: 99px;
+}
+.post-a-job-button-nav:hover {
+  background-color: rgb(242, 242, 242);
+  cursor: pointer;
+}

@@ -502,7 +502,13 @@ export default function MyNavbar() {
               </Popover.Group>
 
               <div className="ml-auto flex items-center">
-                {/* Search */}
+                {/* Search 79643508151*/}
+                <h1
+                  className="mb-0 post-a-job-button-nav"
+                  onClick={() => navigate("/new-job")}
+                >
+                  Post a job
+                </h1>
                 <div className="flex lg:ml-6">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
@@ -513,6 +519,7 @@ export default function MyNavbar() {
                       onClick={() => setIsSearch(!isSearch)}
                     />
                   </a>
+
                   {isSearch ? (
                     <div className="search-component-div-cont">
                       <MySearch />

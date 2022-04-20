@@ -16,6 +16,7 @@ import MyCompanies from "./components/companies/MyCompanies";
 import AddCompany from "./components/companies/AddCompany";
 import SingleCompany from "./components/companies/SingleCompany";
 import JobDetails from "./components/myjobs/JobDetails";
+import JobPostMain from "./components/myjobs/postJob/JobPostMain";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/my-companies" element={<MyCompanies />} />
             <Route path="/add-companies" element={<AddCompany />} />
             <Route path="/messages" element={<MyMessages />} />
+            <Route path="/new-job" element={<JobPostMain />} />
           </Routes>
         </div>
         <MyFooter />
