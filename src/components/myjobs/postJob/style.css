@@ -1,0 +1,17 @@
+.rdw-option-wrapper {
+  min-width: 37px;
+  height: 32px;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 0 4px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+.rdw-editor-main {
+  height: 60vh;
+  /* overflow: auto; */
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid #f1f1f1;
+}
