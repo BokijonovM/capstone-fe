@@ -5,10 +5,12 @@ import "./style.css";
 
 export default function MyLoader() {
   return (
-    <div className="loader-main-box">
-      <Box sx={{ width: "100%" }}>
-        <LinearProgress color="secondary" />
-      </Box>
+    <div className="loader-main-div-1">
+      <div className="loader-main-box">
+        <Box sx={{ width: "100%" }}>
+          <LinearProgress color="secondary" />
+        </Box>
+      </div>
     </div>
   );
 }
