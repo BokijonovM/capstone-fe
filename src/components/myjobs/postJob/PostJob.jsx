@@ -11,6 +11,7 @@ import "./style.css";
 
 function PostJob() {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  console.log(editorState);
   const onEditorStateChange = (editorState) => {
     setEditorState(editorState);
   };
@@ -22,6 +23,7 @@ function PostJob() {
         wrapperClassName="wrapperClassName"
         editorClassName="editorClassName"
         onEditorStateChange={onEditorStateChange}
+        // onChange={setEditorState}
       />
     </div>
   );

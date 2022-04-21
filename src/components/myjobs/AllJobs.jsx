@@ -113,7 +113,7 @@ function AllJobs({ setIsMap }) {
                     </h6>
                   </div>
                 </div>
-                <div className="d-none all-jobs-tech-stack d-flex flex-column justify-content-center align-items-center">
+                <div className="d-none all-jobs-tech-stack d-flex flex-column justify-content-center align-items-start">
                   <div className="d-flex">
                     {job.techStack.slice(0, 3).map((t) => {
                       return (

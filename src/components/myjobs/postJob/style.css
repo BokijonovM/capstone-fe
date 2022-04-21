@@ -16,3 +16,7 @@
   border: 1px solid #f1f1f1;
   padding: 20px;
 }
+.rdw-dropdown-selectedtext {
+  text-decoration: none !important;
+  color: black !important;
+}
