@@ -1,0 +1,17 @@
+.loader-main-box {
+  position: fixed;
+  width: 50% !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader-main-div-1 {
+  background-color: white !important;
+  height: 100vh !important;
+  width: 100vw !important;
+
+  z-index: 9999 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
