@@ -11,9 +11,6 @@ function MyMain() {
   const [isMap, setIsMap] = useState(false);
   return (
     <div className="may-main mt-3">
-      <div className="d-flex justify-content-center">
-        <PostJob />
-      </div>
       <Row className="m-0 p-0" sm={1} md={2}>
         <Col className="" md={7}>
           <AllJobs setIsMap={setIsMap} />

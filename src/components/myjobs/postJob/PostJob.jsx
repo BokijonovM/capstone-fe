@@ -16,7 +16,10 @@ function PostJob() {
     setEditorState(editorState);
   };
   return (
-    <div className="d-flex justify-content-center" style={{ width: "80vw" }}>
+    <div
+      className="post-job-div-shadow-need d-flex justify-content-center"
+      style={{ width: "95vw" }}
+    >
       <Editor
         editorState={editorState}
         toolbarClassName="toolbarClassName"
