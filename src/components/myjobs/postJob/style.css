@@ -17,6 +17,14 @@
 .rdw-editor-main::-webkit-scrollbar {
   width: 3px;
 }
+.rdw-editor-main::-webkit-scrollbar-thumb {
+  border-radius: 5px !important;
+  margin-left: -10px !important;
+}
+.rdw-editor-main::-webkit-scrollbar-track {
+  border-radius: 5px !important;
+  margin-left: -10px !important;
+}
 .rdw-editor-main {
   height: 66vh;
   /* overflow: auto; */
