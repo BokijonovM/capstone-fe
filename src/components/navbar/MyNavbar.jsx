@@ -164,15 +164,37 @@ export default function MyNavbar() {
   const navigate = useNavigate();
   const [isSearch, setIsSearch] = useState(false);
   const userMe = useSelector((state) => state.userMe);
+  const [myComp, setMyComp] = useState([]);
   useEffect(() => {
     if (dataJson) {
       setIsLoggedIn(true);
       console.log(dataJson);
       fetchData(dataJson);
+      fetchMyComp();
     }
   }, []);
   const [open, setOpen] = useState(false);
   const [navbar, setNavbar] = useState(false);
+
+  const fetchMyComp = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_MAIN_URL}/users/me/companies`,
+        {
+          method: "GET",
+          headers: {
+            authorization: dataJson,
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setMyComp(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const extraHeader = () => {
     if (window.scrollY >= 80) {
@@ -187,12 +209,15 @@ export default function MyNavbar() {
   const fetchData = async (token) => {
     try {
       if (token) {
-        const response = await fetch("http://localhost:3001/users/me", {
-          method: "GET",
-          headers: {
-            authorization: token,
-          },
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_API_MAIN_URL}/users/me`,
+          {
+            method: "GET",
+            headers: {
+              authorization: token,
+            },
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           setUser(data);
@@ -503,33 +528,19 @@ export default function MyNavbar() {
 
               <div className="ml-auto flex items-center">
                 {/* Search 79643508151*/}
-                <h1
-                  className="mb-0 post-a-job-button-nav"
-                  onClick={() => navigate("/new-job")}
-                >
-                  Post a job
-                </h1>
-                <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
 
-                    <SearchIcon
-                      className="w-6 h-6"
-                      aria-hidden="true"
-                      onClick={() => setIsSearch(!isSearch)}
-                    />
-                  </a>
-
-                  {isSearch ? (
-                    <div className="search-component-div-cont">
-                      <MySearch />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
                 {isLoggedIn ? (
-                  <div className="flex lg:ml-6">
+                  <div className="flex align-items-center lg:ml-6">
+                    <h1
+                      className="mb-0 post-a-job-button-nav"
+                      onClick={() => {
+                        myComp.length > 0
+                          ? navigate("/new-job")
+                          : navigate("/add-companies");
+                      }}
+                    >
+                      Post a job
+                    </h1>
                     <Menu as="div" className="relative inline-block text-left ">
                       <div>
                         <Menu.Button className="inline-flex shadow-none border-0 justify-center align-items-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
