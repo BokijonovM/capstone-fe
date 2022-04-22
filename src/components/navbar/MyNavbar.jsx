@@ -532,7 +532,7 @@ export default function MyNavbar() {
                 {isLoggedIn ? (
                   <div className="flex align-items-center lg:ml-6">
                     <h1
-                      className="mb-0 post-a-job-button-nav"
+                      className="mb-0 post-a-job-button-nav mr-2"
                       onClick={() => {
                         myComp.length > 0
                           ? navigate("/new-job")
@@ -594,8 +594,13 @@ export default function MyNavbar() {
                             </Menu.Item>
                             <Menu.Item>
                               {({ active }) => (
-                                <a
-                                  href="#"
+                                <Link
+                                  to={
+                                    myComp.length > 0
+                                      ? "/new-job"
+                                      : "/add-companies"
+                                  }
+                                  style={{ textDecoration: "none" }}
                                   className={classNames(
                                     active
                                       ? "bg-gray-100 text-gray-900"
@@ -603,8 +608,8 @@ export default function MyNavbar() {
                                     "block px-4 py-2 text-sm"
                                   )}
                                 >
-                                  Support
-                                </a>
+                                  Post a job
+                                </Link>
                               )}
                             </Menu.Item>
                             <Menu.Item>

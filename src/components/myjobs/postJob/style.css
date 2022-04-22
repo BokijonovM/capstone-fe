@@ -12,6 +12,7 @@
 }
 .rdw-editor-toolbar {
   box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+  border-radius: 5px;
 }
 .rdw-editor-main::-webkit-scrollbar {
   width: 3px;
@@ -20,7 +21,7 @@
   height: 66vh;
   /* overflow: auto; */
   box-sizing: border-box;
-  border-radius: 2px;
+  border-radius: 5px;
   border: 1px solid #f1f1f1;
   padding: 20px;
   box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;

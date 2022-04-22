@@ -47,7 +47,7 @@ function AllJobs({ setIsMap }) {
       <div className="search-fields-main-div-1">
         <TextField
           id="outlined-basic"
-          label="Title"
+          label="Search by title"
           variant="outlined"
           size="small"
           onChange={(e) => setByTitle(e.target.value)}

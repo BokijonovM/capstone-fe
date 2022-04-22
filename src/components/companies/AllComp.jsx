@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Row, Card, Col } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import Button from "@mui/material/Button";
-import OtherLoader from "../loader/OtherLoader";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
-import { setCompaniesAction } from "../../redux/action/index";
 import JobLength from "./JobLength";
 import TextField from "@mui/material/TextField";
 
 function AllComp() {
-  const dispatch = useDispatch();
-  const userMe = useSelector((state) => state.userMe);
-  const allCompanies = useSelector((state) => state.companies);
   const [companies, setCompanies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [compName, setCompName] = useState("");
@@ -22,7 +17,7 @@ function AllComp() {
       let res = await fetch(`${process.env.REACT_APP_API_MAIN_URL}/companies`);
       if (res.ok) {
         let data = await res.json();
-        console.log(data.total.companies);
+        // console.log(data.total.companies);
         setCompanies(data.total.companies);
         setIsLoading(false);
       } else {
@@ -41,7 +36,7 @@ function AllComp() {
       <div className="search-fields-main-div-1 ml-0">
         <TextField
           id="outlined-basic"
-          label="Company"
+          label="Search by name"
           variant="outlined"
           size="small"
           onChange={(e) => setCompName(e.target.value)}
