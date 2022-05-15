@@ -15,7 +15,7 @@ function ItemTwo({ company }) {
   const fetchJobs = async () => {
     try {
       let res = await fetch(
-        `${process.env.REACT_APP_API_MAIN_URL}/jobs/c-search/${company.name}`
+        `${process.env.REACT_APP_API_MAIN_URL}/jobs/c-search/${company?.name}`
       );
       if (res.ok) {
         let data = await res.json();
@@ -48,7 +48,7 @@ function ItemTwo({ company }) {
                     className="company-cover-image"
                     alt={job.title}
                     src={company.cover}
-                    // src={job.cover}
+                  // src={job.cover}
                   />
                   <div className="ml-3">
                     <h6 className="job-title-posted ">{job.title}</h6>

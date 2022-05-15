@@ -16,6 +16,8 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^4.6.0",
+    "dompurify": "^2.3.8",
+    "draft-convert": "^2.1.12",
     "framer-motion": "^6.3.0",
     "leaflet": "^1.7.1",
     "moment": "^2.29.2",

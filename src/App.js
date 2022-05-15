@@ -17,6 +17,9 @@ import AddCompany from "./components/companies/AddCompany";
 import SingleCompany from "./components/companies/SingleCompany";
 import JobDetails from "./components/myjobs/JobDetails";
 import JobPostMain from "./components/myjobs/postJob/JobPostMain";
+import ThankYouPosting from "./components/myjobs/postJob/ThankYouPosting";
+import MyJob from "./components/myjobs/details/MyJob";
+import SingleJob from "./components/myjobs/details/SingleJob";
 
 function App() {
   return (
@@ -34,11 +37,13 @@ function App() {
             <Route path="/my-jobs" element={<MyJobs />} />
             <Route path="/companies" element={<AllCompanies />} />
             <Route path="/companies/:id" element={<SingleCompany />} />
-            <Route path="/jobs/:id" element={<JobDetails />} />
+            <Route path="/my-jobs/:id" element={<MyJob />} />
+            <Route path="/jobs/:id" element={<SingleJob />} />
             <Route path="/my-companies" element={<MyCompanies />} />
             <Route path="/add-companies" element={<AddCompany />} />
             <Route path="/messages" element={<MyMessages />} />
             <Route path="/new-job" element={<JobPostMain />} />
+            <Route path="/job-posted-thank-you" element={<ThankYouPosting />} />
           </Routes>
         </div>
         <MyFooter />

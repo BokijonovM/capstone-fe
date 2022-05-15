@@ -10,9 +10,11 @@ import moment from "moment";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import MapIcon from "@mui/icons-material/Map";
+import { useSelector } from 'react-redux'
 
 function AllJobs({ setIsMap }) {
   const [alignment, setAlignment] = React.useState("left");
+  const userMe = useSelector((state) => state.userMe);
 
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
@@ -94,7 +96,17 @@ function AllJobs({ setIsMap }) {
               <div
                 className="all-jobs-main-div-2nd-page my-2 p-4"
                 key={job._id}
-                onClick={() => navigate(`/jobs/${job._id}`)}
+                onClick={() => {
+                  if (job.user._id === userMe._id) {
+                    navigate(`/my-jobs/${job._id}`)
+                  }
+                  else if (!userMe) {
+                    navigate(`/jobs/${job._id}`)
+                  }
+                  else {
+                    navigate(`/jobs/${job._id}`)
+                  }
+                }}
               >
                 <div className="d-flex align-items-center">
                   <JobImage job={job.companyName} />

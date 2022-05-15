@@ -44,28 +44,13 @@ function AllApplicants({ job }) {
     fetchApp();
   }, []);
   return (
-    <div className="w-100 mx-4">
+    <div className={applicants.length > 0 ? "w-100 mx-4" : "d-none"}>
       <div className="px-3 mt-4 mb-3 d-flex justify-content-between w-100 align-items-center">
         <h4 className={applicants.length === 1 ? "d-none" : ""}>
           All applicants
         </h4>
 
-        <div className="d-flex justify-content-between align-items-center">
-          <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-            <InputLabel id="demo-select-small">Filter</InputLabel>
-            <Select
-              labelId="demo-select-small"
-              id="demo-select-small"
-              className="filter-condidates-drop"
-              value={age}
-              label="Age"
-              onChange={handleChange}
-            >
-              <MenuItem value={"Experience"}>Experience</MenuItem>
-              <MenuItem value={"Location"}>Location</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
+
       </div>
       {isLoading ? (
         ""

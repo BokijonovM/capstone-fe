@@ -10,21 +10,26 @@
 
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
 .rdw-editor-toolbar {
   box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
   border-radius: 5px;
 }
+
 .rdw-editor-main::-webkit-scrollbar {
   width: 3px;
 }
+
 .rdw-editor-main::-webkit-scrollbar-thumb {
   border-radius: 5px !important;
   margin-left: -10px !important;
 }
+
 .rdw-editor-main::-webkit-scrollbar-track {
   border-radius: 5px !important;
   margin-left: -10px !important;
 }
+
 .rdw-editor-main {
   height: 66vh;
   /* overflow: auto; */
@@ -32,15 +37,23 @@
   border-radius: 5px;
   border: 1px solid #f1f1f1;
   padding: 20px;
-  box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+  box-shadow: rgba(156, 156, 156, 0.1) 0px 2px 8px 0px;
 }
+
 .rdw-dropdown-selectedtext {
   text-decoration: none !important;
   color: black !important;
 }
+
 .rdw-dropdown-optionwrapper::-webkit-scrollbar {
   width: 2px;
 }
+
 .rdw-dropdown-optionwrapper:hover {
   box-shadow: none;
+}
+
+.editor-class {
+  background-color: rgb(235, 235, 235);
+  padding: 1rem;
 }

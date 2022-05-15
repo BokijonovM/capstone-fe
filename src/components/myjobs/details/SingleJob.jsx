@@ -17,6 +17,7 @@ import JobStats from "./JobStats";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import { setSingleJobAction } from "../../../redux/action/index.js";
 import { useDispatch } from "react-redux";
+import SimilarJobs from "./SimilarJobs";
 
 function SingleJob() {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ function SingleJob() {
       );
       if (res.ok) {
         console.log("posted");
+        fetchJob()
       } else {
         console.log("post error");
       }
@@ -313,10 +315,7 @@ function SingleJob() {
                         className="apply-job-apply-btn-down"
                         variant="contained"
                         disabled={isApplied}
-                        onClick={() => {
-                          applyJob();
-                          fetchJob();
-                        }}
+                        onClick={applyJob}
                       >
                         {isApplied ? "APPLIED" : "APPLY"}
                       </Button>
@@ -349,6 +348,9 @@ function SingleJob() {
           </Col>
         </Row>
       )}
+      <Row className="w-100 m-0 p-0 mb-5 justify-content-center align-items-center">
+        <SimilarJobs />
+      </Row>
     </div>
   );
 }

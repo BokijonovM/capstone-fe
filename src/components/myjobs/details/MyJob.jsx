@@ -15,6 +15,8 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import "./style.css";
 import JobStats from "./JobStats";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import AllApplicants from "./AllApplicants";
+import DOMPurify from 'dompurify';
 
 function MyJob() {
   const navigate = useNavigate();
@@ -53,6 +55,12 @@ function MyJob() {
       console.log(error);
     }
   };
+
+  const createMarkup = (html) => {
+    return {
+      __html: DOMPurify.sanitize(html)
+    }
+  }
 
   const deleteJob = async () => {
     try {
@@ -185,61 +193,7 @@ function MyJob() {
                   <h6 className="mt-3" style={{ fontSize: "20px" }}>
                     JOB DESCRIPTION
                   </h6>
-                  <p className="mx-3">{job.description}</p>
-                </div>
-                <div className="mt-4">
-                  <h6 className="mt-3" style={{ fontSize: "20px" }}>
-                    We’ll ask you to
-                  </h6>
-                  <div className="ml-3">
-                    {job.responsibilities.map((r) => {
-                      return (
-                        <p className="mb-1 d-flex align-items-center">
-                          <CheckCircleIcon
-                            className="mr-1"
-                            style={{ color: "#564de5" }}
-                          />
-                          {r.responsibility}
-                        </p>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="mt-4">
-                  <h6 className="mt-3" style={{ fontSize: "20px" }}>
-                    Requirements
-                  </h6>
-                  <div className="ml-3">
-                    {job.requirements.map((r) => {
-                      return (
-                        <p className="mb-1 d-flex align-items-center">
-                          <CheckCircleIcon
-                            className="mr-1"
-                            style={{ color: "#564de5" }}
-                          />
-                          {r.requirement}
-                        </p>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="mt-4">
-                  <h6 className="mt-3" style={{ fontSize: "20px" }}>
-                    We offer
-                  </h6>
-                  <div className="ml-3">
-                    {job.offers.map((r) => {
-                      return (
-                        <p className="mb-1 d-flex align-items-center">
-                          <CheckCircleIcon
-                            className="mr-1"
-                            style={{ color: "#564de5" }}
-                          />
-                          {r.offer}
-                        </p>
-                      );
-                    })}
-                  </div>
+                  <div className="preview" dangerouslySetInnerHTML={createMarkup(job.description)}></div>
                 </div>
               </Row>
               <Row className="statistics-down-btn-row m-0 p-0 pr-3 mb-4">
@@ -298,6 +252,10 @@ function MyJob() {
           </Col>
         </Row>
       )}
+      <Row className="w-100 m-0 p-0 mb-5 justify-content-center align-items-center">
+        <AllApplicants />
+      </Row>
+
     </div>
   );
 }
