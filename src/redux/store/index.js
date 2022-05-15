@@ -15,6 +15,7 @@ export const initialState = {
   companies: [],
   singleJob: null,
 };
+
 const persistConfig = {
   key: "root",
   storage: localStorage,

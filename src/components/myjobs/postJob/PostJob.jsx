@@ -18,7 +18,7 @@ function PostJob() {
   return (
     <div
       className="post-job-div-shadow-need d-flex justify-content-center"
-      style={{ width: "95vw" }}
+      style={{ width: "100%" }}
     >
       <Editor
         editorState={editorState}
@@ -26,7 +26,7 @@ function PostJob() {
         wrapperClassName="wrapperClassName"
         editorClassName="editorClassName"
         onEditorStateChange={onEditorStateChange}
-        // onChange={setEditorState}
+      // onChange={setEditorState}
       />
     </div>
   );
