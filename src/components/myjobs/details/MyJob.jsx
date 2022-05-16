@@ -179,7 +179,10 @@ function MyJob() {
                       })
                     ) : (
                       <h6 className="">
-                        <RemoveCircleRoundedIcon style={{ color: "#564de5" }} />
+                        <Tooltip title={job.techs} placement="top">
+                          <h6 className="singe-job-all-skills">{job.techs}</h6>
+                        </Tooltip>
+
                       </h6>
                     )}
                   </div>
@@ -217,9 +220,13 @@ function MyJob() {
                         );
                       })
                     ) : (
-                      <h6 className="">
-                        <RemoveCircleRoundedIcon style={{ color: "#564de5" }} />
-                      </h6>
+
+                      <Tooltip title={job.techs} placement="top">
+                        <h6 className="singe-job-all-skills-down mb-0">
+                          {job.techs}
+                        </h6>
+                      </Tooltip>
+
                     )}
                   </div>
                   <h6 className="mb-0 text-light ml-auto mr-3">
@@ -260,3 +267,6 @@ function MyJob() {
 }
 
 export default MyJob;
+
+
+// <RemoveCircleRoundedIcon style={{ color: "#564de5" }} />
