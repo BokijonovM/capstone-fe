@@ -245,8 +245,7 @@ function MyJob() {
           </Col>
 
           <Col className="col-for-map-and-apply " md={4}>
-            <Row className="col-2-for-map-main-div m-0 mt-n1"></Row>
-            <Row className="col-2-for-map-2nd-div m-0 mt-1">
+            <Row className="col-2-for-map-2nd-div m-0 mt-n1">
               <SingleJobMap />
             </Row>
           </Col>

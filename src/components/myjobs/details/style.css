@@ -4,6 +4,7 @@
   position: sticky;
   top: 12vh;
 }
+
 .col-2-for-map-main-div {
   width: 100%;
   height: 59%;
@@ -11,10 +12,12 @@
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
 .col-2-for-map-2nd-div {
   width: 100%;
-  height: 40%;
+  height: 100%;
 }
+
 /* .job-title-comp-info-row {
   background-color: aqua;
 } */
@@ -24,6 +27,7 @@
   border-radius: 5px;
   object-fit: cover;
 }
+
 .job-details-hob-title {
   font-size: 2.5vw;
   text-align: start;
@@ -31,26 +35,32 @@
   margin-left: auto;
   overflow-wrap: break-word;
 }
+
 .job-details-hob-company-name {
   font-size: 1.2vw;
   color: #564de5;
 }
+
 .apply-job-apply-btn {
   font-size: 1.7vw !important;
   background-color: #564de5 !important;
 }
+
 .delete-job-apply-btn {
   font-size: 1.5vw !important;
   background-color: red !important;
 }
+
 .apply-job-update-btn {
   font-size: 1.5vw !important;
   background-color: #564de5 !important;
 }
+
 .apply-job-delete-btn {
   font-size: 1.5vw !important;
   background-color: red !important;
 }
+
 .singe-job-all-skills {
   padding: 7px 10px;
   font-size: 14px;
@@ -61,6 +71,7 @@
   font-weight: 650;
   cursor: pointer;
 }
+
 .apply-down-btn-row {
   height: 60px;
   background-color: #564de5;
@@ -89,10 +100,12 @@
   0% {
     transform: translateY(100%);
   }
+
   100% {
     transform: translateY(0);
   }
 }
+
 .statistics-down-btn-row {
   height: 300px;
   background-color: white;
@@ -105,6 +118,7 @@
   align-content: center;
   border-radius: 5px;
 }
+
 .delete-job-apply-btn-down {
   border-radius: 99px !important;
   background-color: red !important;
@@ -117,6 +131,7 @@
   background-color: white !important;
   color: #564de5 !important;
 }
+
 .go-back-arrow {
   border-radius: 50%;
   background-color: white !important;
@@ -124,6 +139,7 @@
   font-size: 35px !important;
   cursor: pointer;
 }
+
 .singe-job-all-skills-down {
   padding: 7px 10px;
   font-size: 14px;
@@ -134,20 +150,25 @@
   font-weight: 650;
   cursor: pointer;
 }
+
 @media (max-width: 767px) {
   .apply-down-btn-row {
     width: 100vw;
   }
+
   .statistics-down-btn-row {
     width: 100vw !important;
   }
+
   .col-2-for-map-main-div {
     margin-top: 10px !important;
   }
+
   .singe-job-all-skills-down {
     display: none;
   }
 }
+
 .quick-view-applicant {
   background-color: #564de5;
   border-radius: 50%;
@@ -156,6 +177,7 @@
   cursor: pointer;
   padding: 5px;
 }
+
 .quick-view-modal-style {
   position: absolute;
   top: 50%;
@@ -167,6 +189,7 @@
   background-color: white;
   border-radius: 5px;
 }
+
 .quick-view-applicant-modal {
   width: 70vw !important;
   height: 75vh !important;
@@ -178,16 +201,24 @@
   /* animation: 0.4s ease-out 0s 1 slideInTopModal; */
   /* -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards; */
 }
+
 @media (max-width: 700px) {
   .quick-view-applicant-modal {
     height: 85vh !important;
     width: 80vw !important;
   }
 }
+
 .filter-condidates-drop {
   border-radius: 99px !important;
   border-color: red !important;
 }
+
 .search-condidates-drop {
   border-radius: 99px !important;
+}
+
+.banner-comp-image {
+  width: 100%;
+  height: 50px;
 }
