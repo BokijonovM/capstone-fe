@@ -1,7 +1,8 @@
 .add-new-comp-2nd-div {
-  width: 100%;
+  width: 100% !important;
   height: 75vh;
   margin: 20px !important;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
 }
