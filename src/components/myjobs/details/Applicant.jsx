@@ -28,7 +28,7 @@ function Applicant({ userId }) {
   const fetchUser = async () => {
     try {
       let res = await fetch(
-        `${process.env.REACT_APP_API_MAIN_URL}/users/${userId}`,
+        `${process.env.REACT_APP_API_MAIN_URL}/users/${userId?.applicant}`,
         {
           headers: {
             authorization: dataJson,
@@ -57,10 +57,10 @@ function Applicant({ userId }) {
       {isLoading ? (
         ""
       ) : (
-        <div className="w-100 applicant-user-div  py-2 px-3">
+        <div className="w-100 applicant-user-div  py-2 px-3" key={user?._id}>
           <div className="d-flex align-items-center w-100 ">
-            <Avatar alt={user.firstName} src={user.image} />
-            <h6 className="mb-0 ml-2">{user.firstName}</h6>
+            <Avatar alt={user?.firstName} src={user?.image} />
+            <h6 className="mb-0 ml-2">{user?.firstName}</h6>
             <Tooltip title="Visit" placement="top">
               <StreetviewIcon className="ml-auto quick-view-applicant" />
             </Tooltip>
@@ -77,14 +77,14 @@ function Applicant({ userId }) {
                 className="mr-1 ml-0"
                 style={{ color: "#564de5" }}
               />
-              {user.city || "..."}
+              {user?.city || "..."}
             </h6>
             <h6 className="mb-0 d-flex align-items-center">
               <PsychologyIcon
                 className="mr-1 ml-0"
                 style={{ color: "#564de5" }}
               />
-              {user.myExperience}
+              {user?.myExperience}
             </h6>
           </div>
         </div>
@@ -95,7 +95,7 @@ function Applicant({ userId }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className="border-0"
-        // animation={true}
+      // animation={true}
       >
         {isLoading ? (
           ""
@@ -131,7 +131,7 @@ function Applicant({ userId }) {
                     </p>
                   </div>
                   <div className="ml-auto d-flex align-items-center">
-                    <Avatar alt={user.firstName} src={user.image} />
+                    <Avatar alt={user?.firstName} src={user?.image} />
                     <Button size="small" className="ml-2" variant="outlined">
                       Decline
                     </Button>
@@ -147,7 +147,7 @@ function Applicant({ userId }) {
                         Full name
                       </dt>
                       <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        {user.firstName} {user.lastName}
+                        {user?.firstName} {user?.lastName}
                       </dd>
                     </div>
                     <div className="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -155,7 +155,7 @@ function Applicant({ userId }) {
                         Applicant title
                       </dt>
                       <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        {user.title ? user.title : "Developer"}
+                        {user?.title ? user?.title : "Developer"}
                       </dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -163,9 +163,9 @@ function Applicant({ userId }) {
                         Email address
                       </dt>
                       <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <a href={`mailto:${user.email}`}>
+                        <a href={`mailto:${user?.email}`}>
                           {" "}
-                          {user.email ? user.email : "Not Provided"}
+                          {user?.email ? user?.email : "Not Provided"}
                         </a>
                       </dd>
                     </div>
@@ -174,7 +174,7 @@ function Applicant({ userId }) {
                         Location
                       </dt>
                       <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        {user.city}
+                        {user?.city}
                       </dd>
                     </div>
                     <div className="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -182,7 +182,7 @@ function Applicant({ userId }) {
                         Experience
                       </dt>
                       <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        {user.myExperience} years
+                        {user?.myExperience} years
                       </dd>
                     </div>
 
@@ -202,7 +202,7 @@ function Applicant({ userId }) {
                                 aria-hidden="true"
                               />
                               <span className="ml-2 flex-1 w-0 truncate">
-                                {user.firstName}_{user.lastName}.pdf
+                                {user?.firstName}_{user?.lastName}.pdf
                               </span>
                             </div>
                             <div className="ml-4 flex-shrink-0">

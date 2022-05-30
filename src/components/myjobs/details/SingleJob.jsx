@@ -216,8 +216,11 @@ function SingleJob() {
                         );
                       })
                     ) : (
+
                       <h6 className="">
-                        <RemoveCircleRoundedIcon style={{ color: "#564de5" }} />
+                        <Tooltip title={job.techs} placement="top">
+                          <h6 className="singe-job-all-skills">{job.techs}</h6>
+                        </Tooltip>
                       </h6>
                     )}
                   </div>

@@ -57,3 +57,13 @@
   background-color: rgb(235, 235, 235);
   padding: 1rem;
 }
+
+.thank-you-posting-main-div {
+  width: 100vw;
+  height: 81.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column
+}

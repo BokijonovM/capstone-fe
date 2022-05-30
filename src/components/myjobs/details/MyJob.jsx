@@ -259,7 +259,7 @@ function MyJob() {
         </Row>
       )}
       <Row className="w-100 m-0 p-0 mb-5 justify-content-center align-items-center">
-        <AllApplicants />
+        <AllApplicants job={params.id} />
       </Row>
 
     </div>

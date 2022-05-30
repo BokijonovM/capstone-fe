@@ -44,9 +44,9 @@ function AllApplicants({ job }) {
     fetchApp();
   }, []);
   return (
-    <div className={applicants.length > 0 ? "w-100 mx-4" : "d-none"}>
+    <div className="w-100 mx-4">
       <div className="px-3 mt-4 mb-3 d-flex justify-content-between w-100 align-items-center">
-        <h4 className={applicants.length === 1 ? "d-none" : ""}>
+        <h4 className={applicants?.length > 1 ? "d-none" : ""}>
           All applicants
         </h4>
 
@@ -56,10 +56,10 @@ function AllApplicants({ job }) {
         ""
       ) : (
         <Row className="m-0 w-100" sm={1} md={2} lg={4}>
-          {applicants.map((a) => {
+          {applicants?.map((a) => {
             return (
               <Col className="w-100 px-1" key={a._id}>
-                <Applicant userId={a.applicant} />
+                <Applicant userId={a} />
               </Col>
             );
           })}
